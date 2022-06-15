@@ -51,6 +51,8 @@ export default function TalentDetails({ talent, talentImages }) {
     },
     instagramfollowers,
     youtubefollowers,
+    youtubeurl,
+    instagramurl,
     bio,
   } = talent.fields;
   return (
@@ -59,18 +61,18 @@ export default function TalentDetails({ talent, talentImages }) {
         <div className="flex-container">
           <h2>{title}</h2>
           <div className="socials">
-            <div className="socials-spacing">
+            <a href={instagramurl} className="socials-spacing">
               <div className="social">
                 <FontAwesomeIcon icon={faInstagram} />
               </div>
               <p>{instagramfollowers}</p>
-            </div>
-            <div>
+            </a>
+            <a href={youtubeurl}>
               <div className="social">
                 <FontAwesomeIcon icon={faYoutube} />
               </div>
               <p>{youtubefollowers}</p>
-            </div>
+            </a>
           </div>
           <p className="bio">{bio.content[0].content[0].value}</p>
         </div>

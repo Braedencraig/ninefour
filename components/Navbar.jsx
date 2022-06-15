@@ -28,7 +28,7 @@ const NavBar = () => (
         </Link>
       </li>
       <li className="navbar__item">
-        <Link href="contact">
+        <Link href="/contact">
           <a>Contact</a>
         </Link>
       </li>

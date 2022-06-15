@@ -1,5 +1,6 @@
 import React from "react";
 import { createClient } from "contentful";
+import WorkWithUs from "../components/WorkWithUs";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -18,6 +19,9 @@ export async function getStaticProps() {
 }
 
 export default function Contact({ contact }) {
-  console.log(contact);
-  return <div>C</div>;
+  return (
+    <div className="contact">
+      <WorkWithUs copy={contact.items[0].fields} />
+    </div>
+  );
 }

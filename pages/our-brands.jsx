@@ -20,6 +20,11 @@ export async function getStaticProps() {
 }
 
 export default function Brands({ copy, brand }) {
-  console.log(copy, brand);
-  return <div>brands</div>;
+  console.log(brand);
+  return (
+    <div className="brands">
+      <h3>{copy.items[0].fields.description}</h3>
+      <div></div>
+    </div>
+  );
 }
