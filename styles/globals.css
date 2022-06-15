@@ -441,6 +441,26 @@ h4 {
     text-align: left;
 }
 
+.brands-info {
+    width: 70vw;
+    max-width: 800px;
+    padding-left: 100px;
+    font-family: "Righteous", cursive;
+    font-size: 30px;
+    display: flex;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    /* margin: 20px; */
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #000;
+    box-shadow: 0 0 0 20px white;
+    /* box-shadow: 0 0 0 8px white, 0 0 0 10px #000, 0 0 0 15px white, 0 0 0 20px #000; */
+}
+
 
 /* .wrapper-marquee {
     max-width: 100%;
