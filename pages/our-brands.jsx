@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Image from "next/image";
 import { createClient } from "contentful";
+import chevron from "../public/assets/chevron.png";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -27,6 +29,12 @@ export default function Brands({ copy, brand }) {
       <div className="brands-info">
         <div className="decorative">
           <div className="circle"></div>
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
         </div>
         <div className="brands-list">
           {brand.items.map((item) => {
