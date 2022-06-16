@@ -4,6 +4,9 @@ const nextConfig = {
     images: {
         domains: ["images.ctfassets.net"],
     },
+    experimental: {
+        concurrentFeatures: true,
+    },
 };
 
 module.exports = nextConfig;

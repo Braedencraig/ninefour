@@ -87,6 +87,7 @@ h3 {
     right: 0;
     z-index: 2;
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 .navbar__title {
@@ -338,8 +339,14 @@ h4 {
     text-align: right;
 }
 
+.about-banner h2 {
+    font-family: "Righteous", cursive;
+    line-height: 1;
+    margin-top: 18vh;
+}
+
 .about-banner img {
-    margin-top: 22vh;
+    margin-top: 30vh;
     width: 20%;
 }
 
@@ -477,6 +484,100 @@ h4 {
 .brands-list p {
     max-width: 500px;
     margin-bottom: 100px;
+}
+
+.fadeIn {
+    animation: fadein 3.3s;
+    -moz-animation: fadein 3.3s;
+    /* Firefox */
+    -webkit-animation: fadein 3.3s;
+    /* Safari and Chrome */
+    -o-animation: fadein 3.3s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+    /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+    /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.mobile-nav {
+    display: none;
+}
+
+.fourofour {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+    #wrap {
+        display: none;
+    }
+    .hero {
+        margin-left: -15px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .navbar__title {
+        width: 33%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .navbar {
+        display: none;
+    }
+    .mobile-nav {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    h2 {
+        font-size: 30px;
+        align-items: center;
+    }
+    h3 {
+        min-width: inherit;
+        font-size: 26px;
+        width: 80%;
+        line-height: 1.1;
+    }
 }
 
 

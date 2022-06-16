@@ -19,7 +19,7 @@ function HeadInfo() {
         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURUxpcU3H2DoAAAABdFJOUwBA5thmAAAADElEQVQI12NgIA0AAAAwAAHHqoWOAAAAAElFTkSuQmCC"
       />
       <link rel="canonical" href="https://goodpeopleonly.com/" />
-      <title> GOOD PEOPLE ONLY </title>
+      <title>WHAT EVER IT SHOULD BE</title>
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
