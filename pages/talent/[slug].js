@@ -76,8 +76,10 @@ export default function TalentDetails({ talent, talentImages }) {
           </div>
           <p className="bio">{bio.content[0].content[0].value}</p>
         </div>
-        <img src={`https://${url}`} alt={description} />
-        <img className="overlay" src="../assets/overlay.png" alt="overlay for image" />
+        <div className="talent-image">
+          <img src={`https://${url}`} alt={description} />
+          {/* <img className="overlay" src="../assets/overlay.png" alt="overlay for image" /> */}
+        </div>
       </div>
       <TalentBar data={talentImages} />
     </>

@@ -35,6 +35,14 @@ export default function Brands({ copy, brand }) {
           <img src={chevron.src} alt="" />
           <img src={chevron.src} alt="" />
           <img src={chevron.src} alt="" />
+          <div className="circle-new"></div>
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <div className="circle-new"></div>
         </div>
         <div className="brands-list">
           {brand.items.map((item) => {

@@ -261,21 +261,32 @@ h4 {
     line-height: 1.33;
 }
 
-.flex-container {
-    position: relative;
-}
 
-.talent-container-single img {
+/* .flex-container {
+    position: relative;
+} */
+
+
+/* .talent-container-single img {
     position: absolute;
     top: 16vh;
     right: 0;
     z-index: 2;
+} */
+
+.talent-container-single {
+    position: relative;
 }
 
 .talent-container-single .overlay {
     right: 1.5vw;
     top: 18vh;
     z-index: 0;
+}
+
+.talent-image {
+    position: absolute;
+    right: 0;
 }
 
 .talent-container-single {
@@ -348,6 +359,7 @@ h4 {
 .about-banner img {
     margin-top: 30vh;
     width: 20%;
+    margin-left: -10px;
 }
 
 .metrics {
@@ -358,6 +370,13 @@ h4 {
     display: flex;
     justify-content: space-between;
     padding: 80px 40px 160px 40px;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .metric span {
@@ -416,7 +435,7 @@ h4 {
 }
 
 .member {
-    width: 33%;
+    width: 50%;
     text-align: center;
     font-size: 35px;
 }
@@ -468,6 +487,16 @@ h4 {
     background-color: white;
     border: 2px solid #000;
     box-shadow: 0 0 0 4px black, 0 0 0 5px white, 0 0 0 9px black, 0 0 0 10px white, 0 0 0 14px black, 0 0 0 15px white;
+}
+
+.circle-new {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 50px;
+    border-radius: 50%;
+    background-color: black;
+    border: 2px solid white;
+    margin-top: 50px;
 }
 
 .decorative {
@@ -552,9 +581,35 @@ h4 {
     }
 }
 
+@media only screen and (max-width: 1400px) {
+    .about-banner h2 {
+        font-size: 110px;
+        margin-top: 25vh;
+    }
+    .talent-container {
+        justify-content: space-around;
+    }
+}
+
 @media only screen and (max-width: 1200px) {
     .navbar__title {
         width: 33%;
+    }
+    .metrics {
+        flex-direction: column;
+    }
+    .metric {
+        margin-bottom: 40px;
+    }
+    .talent-container {
+        flex-direction: column;
+    }
+    .talent-item,
+    .talent h4,
+    .contact h4 {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -564,6 +619,15 @@ h4 {
     }
     .mobile-nav {
         display: block;
+    }
+    .about-banner h2 {
+        font-size: 90px;
+    }
+    .brands h3,
+    .brands-info {
+        width: 90%;
+        max-width: none;
+        padding-left: 0;
     }
 }
 
@@ -577,6 +641,13 @@ h4 {
         font-size: 26px;
         width: 80%;
         line-height: 1.1;
+    }
+    .members {
+        flex-wrap: wrap;
+    }
+    .member {
+        width: 100%;
+        margin-bottom: 60px;
     }
 }
 
