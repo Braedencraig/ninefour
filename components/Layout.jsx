@@ -70,6 +70,8 @@ const Menu = ({ open, setOpen }) => {
 
 const StyledBurger = styled.button`
   position: absolute;
+  position: relative;
+  margin-top: 5vh;
   top: 5%;
   left: 2rem;
   display: flex;

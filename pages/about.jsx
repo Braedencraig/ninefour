@@ -1,8 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useRef } from "react";
 import { createClient } from "contentful";
 import background from "../public/assets/background.png";
 import TeamMembers from "../components/TeamMembers";
+import { useInViewport } from "react-in-viewport";
+
+import NumberCounter from "number-counter";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -28,6 +31,11 @@ export default function About({ aboutInfo, teamMembers }) {
   const { carousel } = aboutInfo.items[0].fields;
   const carouselArr = carousel.content[0].content[0].value.split(" ");
 
+  const myRef = useRef();
+  const { inViewport, enterCount, leaveCount } = useInViewport(myRef);
+
+  console.log(inViewport, enterCount);
+
   return (
     <div className="about-container">
       <div className="about-banner">
@@ -37,12 +45,27 @@ export default function About({ aboutInfo, teamMembers }) {
       <div className="metrics">
         {metrics.map((metric, i) => {
           const textArr = metric.split(" ");
-          return (
-            <div className="metric" key={i}>
-              <span>{textArr[0]} </span>
-              {textArr[1]} {textArr[2]}
-            </div>
-          );
+          if (i === 0) {
+            return (
+              <div className="metric" key={i}>
+                <span>
+                  <NumberCounter end={Number(textArr[0])} delay={2} className="increment" />
+                </span>
+                <div ref={myRef}>
+                  {textArr[1]} {textArr[2]}
+                </div>
+              </div>
+            );
+          } else {
+            return (
+              <div className="metric" key={i}>
+                <span>
+                  <NumberCounter end={Number(textArr[0])} delay={2} className="increment" />
+                </span>
+                {textArr[1]} {textArr[2]}
+              </div>
+            );
+          }
         })}
       </div>
       <div className="scroll">

@@ -81,7 +81,7 @@ h3 {
     align-items: center;
     max-width: 1600px;
     padding: 0px 40px;
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     right: 0;
@@ -104,6 +104,11 @@ h3 {
     vertical-align: middle;
     font-size: 19px;
     color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar__item:hover {
+    opacity: 0.4;
 }
 
 html {
@@ -125,8 +130,15 @@ body {
     width: 100%;
 }
 
-.full-screen-video-container {
+header {
     position: relative;
+    z-index: 10;
+}
+
+.full-screen-video-container {
+    /* position: relative; */
+    position: absolute;
+    top: 0;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -336,10 +348,17 @@ h4 {
     transform: scale(1.2);
 }
 
+.about-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    /* padding: 0px 40px;
+    margin: 0 auto; */
+    overflow: hidden;
+}
+
 .about-hero {
     font-size: 170px;
     width: 66%;
-    margin-right: 5vw;
 }
 
 .about-banner {
@@ -348,16 +367,21 @@ h4 {
     justify-content: space-between;
     width: 100%;
     text-align: right;
+    margin-top: 8vh;
+    padding-right: 40px;
+    /* padding: 0 40px; */
 }
 
 .about-banner h2 {
     font-family: "Righteous", cursive;
     line-height: 1;
-    margin-top: 18vh;
+    margin: 0;
+    margin-right: 15px;
+    /* margin-top: 8vh; */
 }
 
 .about-banner img {
-    margin-top: 30vh;
+    /* margin-top: 10vh; */
     width: 20%;
     margin-left: -10px;
 }
@@ -369,7 +393,7 @@ h4 {
     font-size: 35px;
     display: flex;
     justify-content: space-between;
-    padding: 80px 40px 160px 40px;
+    padding: 10vh 40px 20vh 40px;
 }
 
 .metric {
@@ -377,6 +401,7 @@ h4 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 220px;
 }
 
 .metric span {
@@ -385,7 +410,7 @@ h4 {
 
 .scroll {
     position: relative;
-    width: 100vw;
+    /* width: 100vw; */
     padding: 80px 0;
     /* height: 15%; */
     /* min-height: 150px; */
@@ -430,7 +455,8 @@ h4 {
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
-    margin: 10vh 0;
+    width: 70%;
+    margin: 10vh auto 15vh auto;
     font-family: "Righteous", cursive;
 }
 
@@ -450,7 +476,7 @@ h4 {
 }
 
 .contact {
-    margin-top: 33vh;
+    margin-top: 20vh;
 }
 
 .brands {
@@ -572,6 +598,19 @@ h4 {
     justify-content: center;
 }
 
+@media only screen and (max-width: 1440px) {
+    .about-banner h2 {
+        font-size: 120px;
+        /* margin-top: 25vh; */
+    }
+    .members {
+        width: 80%;
+    }
+    /* .talent-container {
+        justify-content: space-around;
+    } */
+}
+
 @media only screen and (max-width: 768px) {
     #wrap {
         display: none;
@@ -582,10 +621,10 @@ h4 {
 }
 
 @media only screen and (max-width: 1400px) {
-    .about-banner h2 {
+    /* .about-banner h2 {
         font-size: 110px;
         margin-top: 25vh;
-    }
+    } */
     .talent-container {
         justify-content: space-around;
     }
@@ -595,12 +634,18 @@ h4 {
     .navbar__title {
         width: 33%;
     }
-    .metrics {
+    .members {
+        width: 100%;
+    }
+    .member p {
+        padding: 0 90px;
+    }
+    /* .metrics {
         flex-direction: column;
-    }
-    .metric {
+    } */
+    /* .metric {
         margin-bottom: 40px;
-    }
+    } */
     .talent-container {
         flex-direction: column;
     }
@@ -621,7 +666,10 @@ h4 {
         display: block;
     }
     .about-banner h2 {
-        font-size: 90px;
+        font-size: 80px;
+    }
+    .about-banner {
+        margin-top: 4vh;
     }
     .brands h3,
     .brands-info {
@@ -629,10 +677,68 @@ h4 {
         max-width: none;
         padding-left: 0;
     }
+    .metrics,
+    .members {
+        flex-direction: column;
+        align-items: center;
+    }
+    .metric {
+        margin-bottom: 40px;
+    }
+    .member {
+        margin-bottom: 60px;
+    }
+    .member p {
+        padding: 0;
+    }
 }
 
 @media only screen and (max-width: 768px) {
+    .about-banner h2 {
+        font-size: 40px;
+    }
     h2 {
+        font-size: 40px;
+        align-items: center;
+    }
+    h3 {
+        min-width: inherit;
+        font-size: 26px;
+        width: 80%;
+        line-height: 1.1;
+    }
+    .about-banner {
+        padding-right: 20px;
+    }
+    .member img {
+        width: 100%;
+    }
+    .member {
+        width: 80%;
+    }
+    .metric span {
+        font-size: 40px;
+    }
+    .m-scroll span {
+        font-size: 35px;
+    }
+    .metrics {
+        font-size: 30px;
+        padding: 5vh 20px 5vh 20px;
+    }
+    .scroll {
+        margin-top: -10px;
+    }
+    .member p {
+        font-size: 30px;
+    }
+    .member .member-bio {
+        font-size: 20px;
+    }
+    .members {
+        margin-bottom: 10vh;
+    }
+    /* h2 {
         font-size: 30px;
         align-items: center;
     }
@@ -648,7 +754,7 @@ h4 {
     .member {
         width: 100%;
         margin-bottom: 60px;
-    }
+    } */
 }
 
 
