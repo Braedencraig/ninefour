@@ -33,31 +33,41 @@ export default function Talent({ talent, talentInfo }) {
   //   let moveXAmount = 0;
   //   let moveYAmount = 0;
 
-  //   document.addEventListener("mousemove", function (e) {
-  //     mousePos(e);
+  //   Array.from(imgArr).map((img) => {
+  //     img.addEventListener("mousemove", function (e) {
+  //       mousePos(e);
+  //     });
   //   });
 
-  //   function mousePos(e) {
-  //     moveXAmount = e.pageX - prevX;
-  //     moveYAmount = e.pageY - prevY;
-  //     moveImg(moveXAmount, moveYAmount);
+  // document.addEventListener("mousemove", function (e) {
+  //   mousePos(e);
+  // });
 
-  //     prevX = e.pageX;
-  //     prevY = e.pageY;
-  //   }
+  // function mousePos(e) {
+  //   moveXAmount = e.pageX - prevX;
+  //   moveYAmount = e.pageY - prevY;
+  //   moveImg(moveXAmount, moveYAmount);
 
-  //   function moveImg(xAmount, yAmount) {
-  //     imgArr.forEach((img) => {
-  //       let movementStrength = 5 + Math.random() * 105;
-  //       img.style.left = img.offsetLeft - (xAmount / movementStrength) + "px";
-  //       img.style.top = img.offsetTop - (yAmount / movementStrength) + "px";
-  //     });
-  //   }
+  //   prevX = e.pageX;
+  //   prevY = e.pageY;
+  // }
+
+  // function moveImg(xAmount, yAmount) {
+  //   imgArr.forEach((img) => {
+  //     let movementStrength = 5 + Math.random() * 105;
+  //     // console.log(xAmount);
+  //     // img.style.left = xAmount + "px";
+  //     // img.style.top = yAmount + "px";
+
+  //     // img.style.left = img.offsetLeft - xAmount / movementStrength + "px";
+  //     // img.style.top = img.offsetTop - yAmount / movementStrength + "px";
+  //   });
+  // }
   // });
   return (
     <div className="talent">
       <div className="talent-container">
-      {talent.map((item, i) => (
+        {talent.map((item, i) => (
           <div key={item.sys.id} className={`img img${i + 1} talent-item`}>
             <Link href={`/talent/${item.fields.slug}`}>
               <a>

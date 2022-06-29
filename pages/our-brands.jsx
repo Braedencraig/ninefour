@@ -1,8 +1,12 @@
+/* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Image from "next/image";
 import { createClient } from "contentful";
 import chevron from "../public/assets/chevron.png";
+import styled from "styled-components";
+import { Controller, Scene } from "react-scrollmagic";
+import { Controls, PlayState, Tween } from "react-gsap";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -22,10 +26,16 @@ export async function getStaticProps() {
   };
 }
 
-export default function Brands({ copy, brand }) {
-  return (
-    <div className="brands">
-      <h3>{copy.items[0].fields.description}</h3>
+const ClassToggleStyled = styled.div`
+  .section {
+    height: 100vh;
+  }
+`;
+
+// <div className="brands">
+
+{
+  /* <h3>{copy.items[0].fields.description}</h3>
       <div className="brands-info">
         <div className="decorative">
           <div className="circle"></div>
@@ -55,7 +65,26 @@ export default function Brands({ copy, brand }) {
             );
           })}
         </div>
-      </div>
-    </div>
+      </div> */
+}
+// </div>
+
+export default function Brands({ copy, brand }) {
+  return (
+    // <ClassToggleStyled>
+    //   <div className="section" />
+    //   <div id="trigger" />
+    //   <Controller>
+    //     <Scene duration={200} classToggle="add-pulse" triggerElement="#trigger" indicators={true}>
+    //       {(progress, event) => <div className="pulse"></div>}
+    //     </Scene>
+    //   </Controller>
+    //   <div className="section" />
+    // </ClassToggleStyled>
+    <Controls playState={PlayState.stop}>
+      <Tween to={{ x: "200px", rotation: 180 }} duration={2} ease="back.out(1.7)">
+        <div style={{ width: "100px", height: "100px", background: "#ccc" }} />
+      </Tween>
+    </Controls>
   );
 }

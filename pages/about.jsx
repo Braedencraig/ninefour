@@ -34,8 +34,6 @@ export default function About({ aboutInfo, teamMembers }) {
   const myRef = useRef();
   const { inViewport, enterCount, leaveCount } = useInViewport(myRef);
 
-  console.log(inViewport, enterCount);
-
   return (
     <div className="about-container">
       <div className="about-banner">

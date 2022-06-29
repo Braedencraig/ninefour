@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { createClient } from "contentful";
 import WorkWithUs from "../components/WorkWithUs";
 
@@ -20,6 +20,30 @@ export async function getStaticProps() {
 
 export default function Contact({ contact }) {
   return (
+    // <MagneticButton
+    //   className="button-1"
+    //   style={{ backgroundColor: "transparent" }}
+    //   scale={2}
+    //   tollerance={0.8}
+    //   speed={0.3}
+    //   borderRadius="50%"
+    //   onClick={() => {
+    //     console.log("click");
+    //   }}
+    // >
+    //   <MagneticButton
+    //     className="button-1"
+    //     scale={4}
+    //     tollerance={1}
+    //     speed={0.5}
+    //     borderRadius="50%"
+    //     onClick={() => {
+    //       console.log("click");
+    //     }}
+    //   >
+    //     Inception
+    //   </MagneticButton>
+    // </MagneticButton>
     <div className="contact">
       <WorkWithUs copy={contact.items[0].fields} />
     </div>

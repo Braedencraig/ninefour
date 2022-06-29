@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function TalentBar({ data }) {
-  console.log(data);
   return (
     <div className="talent-bar">
       {data.map(({ fields: { tinycircle, title, slug } }) => {

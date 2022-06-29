@@ -60,6 +60,9 @@ export default function TalentDetails({ talent, talentImages }) {
       <div className="talent-container-single">
         <div className="flex-container">
           <h2>{title}</h2>
+          <div className="mobile-image">
+            <img src={`https://${url}`} alt={description} />
+          </div>
           <div className="socials">
             <a href={instagramurl} className="socials-spacing">
               <div className="social">
