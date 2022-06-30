@@ -424,11 +424,11 @@ h4 {
     opacity: 1;
 }
 
-.talent-bar span {
+.talent-bar img {
     transition: all 0.3s ease-in-out;
 }
 
-.talent-bar span:hover {
+.talent-bar img:hover {
     transform: scale(1.2);
 }
 
