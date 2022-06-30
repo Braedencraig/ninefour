@@ -229,6 +229,11 @@ header {
     transform: translate(-50%, -50%);
 }
 
+.talent-bar img {
+    width: 90px;
+    height: 79px;
+}
+
 .talent-container {
     display: flex;
     flex-wrap: wrap;
