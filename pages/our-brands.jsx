@@ -6,7 +6,12 @@ import { createClient } from "contentful";
 import chevron from "../public/assets/chevron.png";
 import styled from "styled-components";
 import { Controller, Scene } from "react-scrollmagic";
-import { Controls, PlayState, Tween } from "react-gsap";
+// import { Controls, PlayState, Tween } from "react-gsap";
+import { gsap } from "gsap";
+
+import { Tween } from "react-gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export async function getStaticProps() {
   const client = createClient({
@@ -26,18 +31,50 @@ export async function getStaticProps() {
   };
 }
 
-const ClassToggleStyled = styled.div`
-  .section {
-    height: 100vh;
-  }
-`;
+export default function Brands({ copy, brand }) {
+  const BrandItem = ({ data }) => {
+    const { title, info, image } = data;
+    return (
+      <div className="brand-flex">
+        <div className="brand-flex-left">
+          <div className="circle pulse add-pulse"></div>
+          <img className="margin-help" src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" />
 
-// <div className="brands">
-
-{
-  /* <h3>{copy.items[0].fields.description}</h3>
+          <img className="secret" src={chevron.src} alt="" />
+          <img className="secret" src={chevron.src} alt="" />
+          <img className="secret" src={chevron.src} alt="" />
+          {/* <img src={chevron.src} alt="" />
+          <img src={chevron.src} alt="" /> */}
+        </div>
+        <div className="brand-flex-right">
+          <div key={title}>
+            <img src={`https://${image.fields.file.url}`} alt={title} />
+            {/* <Image src={`https://${image.fields.file.url}`} width={image.fields.file.details.image.width} height={image.fields.file.details.image.height} alt={title} /> */}
+            <p>{info}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  return (
+    <div className="brands">
+      <h3>{copy.items[0].fields.description}</h3>
       <div className="brands-info">
-        <div className="decorative">
+        <div className="brands-list">
+          {brand.items.map((item) => {
+            return <BrandItem key={item.title} data={item.fields} />;
+            // const { title, info, image } = item.fields;
+            // return brandItem(title, info, image);
+            // <div key={title}>
+            //   <Image src={`https://${image.fields.file.url}`} width={image.fields.file.details.image.width} height={image.fields.file.details.image.height} alt={title} />
+            //   <p>{info}</p>
+            // </div>
+          })}
+        </div>
+        {/* <div className="decorative">
           <div className="circle"></div>
           <img src={chevron.src} alt="" />
           <img src={chevron.src} alt="" />
@@ -53,8 +90,8 @@ const ClassToggleStyled = styled.div`
           <img src={chevron.src} alt="" />
           <img src={chevron.src} alt="" />
           <div className="circle-new"></div>
-        </div>
-        <div className="brands-list">
+        </div> */}
+        {/* <div className="brands-list">
           {brand.items.map((item) => {
             const { title, info, image } = item.fields;
             return (
@@ -64,27 +101,32 @@ const ClassToggleStyled = styled.div`
               </div>
             );
           })}
-        </div>
-      </div> */
-}
-// </div>
-
-export default function Brands({ copy, brand }) {
-  return (
+        </div> */}
+      </div>
+    </div>
+    // <Tween
+    //   to={{
+    //     x: "300px",
+    //     scrollTrigger: {
+    //       trigger: ".square",
+    //       start: "100px center",
+    //       end: "1000px center",
+    //       scrub: 0.5,
+    //       markers: true,
+    //     },
+    //   }}
+    // >
+    //   <div className="square" style={{ width: "100px", height: "100px", background: "#ccc" }} />
+    // </Tween>
     // <ClassToggleStyled>
     //   <div className="section" />
     //   <div id="trigger" />
     //   <Controller>
     //     <Scene duration={200} classToggle="add-pulse" triggerElement="#trigger" indicators={true}>
-    //       {(progress, event) => <div className="pulse"></div>}
+    //       {(progress, event) => <div className="pulse add-pulse"></div>}
     //     </Scene>
     //   </Controller>
     //   <div className="section" />
     // </ClassToggleStyled>
-    <Controls playState={PlayState.stop}>
-      <Tween to={{ x: "200px", rotation: 180 }} duration={2} ease="back.out(1.7)">
-        <div style={{ width: "100px", height: "100px", background: "#ccc" }} />
-      </Tween>
-    </Controls>
   );
 }

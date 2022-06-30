@@ -80,11 +80,32 @@ h3 {
     box-sizing: border-box;
 }
 
+.brand-flex {
+    display: flex;
+}
+
+.margin-help {
+    margin-top: 50px;
+}
+
+.brand-flex-left {
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.brand-flex-left img {
+    width: 20px;
+    padding: 10px 0;
+}
+
 .pulse {
     position: absolute;
+    /* position: absolute;
     top: 35%;
-    left: 40%;
-    transform: translate(-505, -50%);
+    left: 40%; */
+    /* transform: translate(-505, -50%); */
     width: 20px;
     height: 20px;
     background: #fff;
@@ -151,9 +172,10 @@ h3 {
     transition: all 0.3s ease-in-out;
 }
 
-.navbar__item a {
+
+/* .navbar__item a {
     padding: 20px;
-}
+} */
 
 .navbar__item:hover {
     opacity: 0.4;
@@ -499,6 +521,10 @@ h4 {
     color: black;
 }
 
+.secret {
+    display: none;
+}
+
 @keyframes scrollText {
     from {
         transform: translateX(0%);
@@ -674,11 +700,17 @@ h4 {
     #wrap {
         display: none;
     }
+    .brands h3 {
+        width: 100%;
+    }
     .hero {
         margin-left: -15px;
     }
     .talent-item-text {
         font-size: 22px;
+    }
+    .secret {
+        display: block;
     }
 }
 
