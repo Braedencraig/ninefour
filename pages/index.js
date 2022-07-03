@@ -28,9 +28,12 @@ export default function Home({ homepage }) {
   return (
     <div className="full-screen-video-container">
       <HeadInfo />
-      <video autoPlay loop muted>
-        <source src="../assets/background.mp4" type="video/mp4" />
+      <video autoPlay loop muted playsinline>
+        <source src={`https://${fields.video.fields.file.url}`} type="video/mp4" />
       </video>
+      {/* <video autoPlay loop muted>
+        <source src="../assets/background.mp4" type="video/mp4" />
+      </video> */}
       <div className="heroText">
         <h1>{fields.title}</h1>
         <h2>
