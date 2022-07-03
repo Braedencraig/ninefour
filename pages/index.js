@@ -31,9 +31,9 @@ export default function Home({ homepage }) {
     <div className="full-screen-video-container">
       <HeadInfo />
       <video autoPlay loop muted playsinline>
-        <source src="http://www.w3schools.com/html/mov_bbb.mp4" />
-        <source src="http://www.w3schools.com/html/mov_bbb.webm" onError="fallback(parentNode)" />
-        <img src="http://www.w3schools.com/html/mov_bbb.gif" />
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" />
+        <source src="https://www.w3schools.com/html/mov_bbb.webm" onError="fallback(parentNode)" />
+        <img src="https://www.w3schools.com/html/mov_bbb.gif" />
       </video>
       {/* <video autoPlay loop muted playsinline>
         <source src={`https://${fields.video.fields.file.url}`} type="video/mp4" />
