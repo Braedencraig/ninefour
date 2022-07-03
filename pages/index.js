@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
+import { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import HeadInfo from "../components/HeadInfo";
@@ -27,10 +28,15 @@ export default function Home({ homepage }) {
   const { fields } = homepage[0];
   const titleText = fields.title.split(" ");
 
+  useEffect(() => {
+    const video = document.getElementById("video");
+    video.play();
+  }, []);
+
   return (
     <div className="full-screen-video-container">
       <HeadInfo />
-      <video autoPlay muted loop src={`https://${fields.video.fields.file.url}`}></video>
+      <video id="video" autoPlay muted loop playsInline src={`https://${fields.video.fields.file.url}`}></video>
       {/* <video autoPlay loop muted playsinline>
         <source src="https://www.w3schools.com/html/mov_bbb.mp4" />
         <source src="https://www.w3schools.com/html/mov_bbb.webm" onError="fallback(parentNode)" />
