@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import Head from "next/head";
 import Image from "next/image";
 import HeadInfo from "../components/HeadInfo";
@@ -29,8 +31,13 @@ export default function Home({ homepage }) {
     <div className="full-screen-video-container">
       <HeadInfo />
       <video autoPlay loop muted playsinline>
-        <source src={`https://${fields.video.fields.file.url}`} type="video/mp4" />
+        <source src="http://www.w3schools.com/html/mov_bbb.mp4" />
+        <source src="http://www.w3schools.com/html/mov_bbb.webm" onError="fallback(parentNode)" />
+        <img src="http://www.w3schools.com/html/mov_bbb.gif" />
       </video>
+      {/* <video autoPlay loop muted playsinline>
+        <source src={`https://${fields.video.fields.file.url}`} type="video/mp4" />
+      </video> */}
       {/* <video autoPlay loop muted>
         <source src="../assets/background.mp4" type="video/mp4" />
       </video> */}
