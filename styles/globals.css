@@ -24,7 +24,7 @@ body {
     overflow-x: hidden;
 }
 
-.mobile-image {
+.mobile-talent {
     display: none;
 }
 
@@ -793,7 +793,7 @@ h4 {
         margin-left: auto;
         margin-right: auto;
         margin-top: 40vh;
-        margin-bottom: 5vh;
+        margin-bottom: 40px;
     }
 }
 
@@ -870,10 +870,29 @@ h4 {
     .socials {
         flex-direction: row;
     }
+    .mobile-talent {
+        display: flex;
+        flex-direction: column;
+        margin-top: -8vh;
+    }
+    .desktop-talent {
+        display: none;
+    }
     .mobile-image {
+        display: flex;
+        justify-content: center;
+    }
+    .talent-container-single h2 {
+        border-bottom: none;
+        margin-top: 40px;
+    }
+    /* .mobile-image {
         margin: 0 auto;
         display: flex;
         justify-content: center;
+    } */
+    .bio {
+        width: 100vw;
     }
     .talent-bar {
         display: none;
@@ -881,6 +900,31 @@ h4 {
     .talent-container-single {
         padding-bottom: 0;
         border-bottom: none;
+    }
+    .boxes {
+        background: white;
+        width: 50px;
+        height: 50px;
+    }
+    .boxes div {
+        display: flex;
+        flex-direction: row;
+    }
+    .box {
+        width: 25px;
+        height: 25px;
+        border: 3px solid black;
+    }
+    .back-to-gallery {
+        display: flex;
+        align-items: center;
+        padding-left: 5vw;
+        font-family: "Righteous", cursive;
+        font-size: 22px;
+        margin-bottom: 40px;
+    }
+    .back-to-gallery a {
+        margin-left: 20px;
     }
 }
 
