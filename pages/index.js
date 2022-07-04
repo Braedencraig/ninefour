@@ -36,18 +36,8 @@ export default function Home({ homepage }) {
   return (
     <div className="full-screen-video-container">
       <HeadInfo />
+      <div className="overlay"></div>
       <video id="video" autoPlay muted loop playsInline src={`https://${fields.video.fields.file.url}`}></video>
-      {/* <video autoPlay loop muted playsinline>
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" />
-        <source src="https://www.w3schools.com/html/mov_bbb.webm" onError="fallback(parentNode)" />
-        <img src="https://www.w3schools.com/html/mov_bbb.gif" />
-      </video> */}
-      {/* <video autoPlay loop muted playsinline>
-        <source src={`https://${fields.video.fields.file.url}`} type="video/mp4" />
-      </video> */}
-      {/* <video autoPlay loop muted>
-        <source src="../assets/background.mp4" type="video/mp4" />
-      </video> */}
       <div className="heroText">
         <h1>{fields.title}</h1>
         <h2>

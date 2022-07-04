@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import WorkWithUs from "../../components/WorkWithUs";
 import Link from "next/link";
 import Image from "next/image";
@@ -26,6 +26,7 @@ export async function getStaticProps() {
 }
 
 export default function Talent({ talent, talentInfo }) {
+  const [shuffTalent, setShuff] = useState([]);
   // useEffect(() => {
   //   let imgArr = document.querySelectorAll(".img");
   //   let prevX = 0;
@@ -64,10 +65,34 @@ export default function Talent({ talent, talentInfo }) {
   //   });
   // }
   // });
+
+  useEffect(() => {
+    function shuffle(array) {
+      let currentIndex = array.length,
+        randomIndex;
+
+      // While there remain elements to shuffle.
+      while (currentIndex != 0) {
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      }
+
+      return array;
+    }
+
+    setShuff(shuffle(talent));
+  }, [shuffTalent, talent]);
+
+  console.log(talent);
+  console.log(shuffTalent);
   return (
     <div className="talent">
       <div className="talent-container">
-        {talent.map((item, i) => (
+        {shuffTalent.map((item, i) => (
           <div key={item.sys.id} className={`img img${i + 1} talent-item`}>
             <Link href={`/talent/${item.fields.slug}`}>
               <a>

@@ -69,26 +69,12 @@ export default function About({ aboutInfo, teamMembers }) {
       <div className="scroll">
         <div className="m-scroll">
           <span>
+            {" "}
             ━━━━━━━━{" "}
             {carouselArr.map((item, i) => {
-              return <>{item.replace(",", " ━━━━━━━━").toUpperCase()}</>;
+              return <>{item.replace(",", " ━━━━━━━━ ").toUpperCase()}</>;
             })}
-          </span>{" "}
-          ━━━━━━━━
-          <span>
-            ━━━━━━━━{" "}
-            {carouselArr.map((item, i) => {
-              return <>{item.replace(",", " ━━━━━━━━").toUpperCase()}</>;
-            })}
-          </span>{" "}
-          ━━━━━━━━
-          <span>
-            ━━━━━━━━{" "}
-            {carouselArr.map((item, i) => {
-              return <>{item.replace(",", " ━━━━━━━━").toUpperCase()}</>;
-            })}
-          </span>{" "}
-          ━━━━━━━━
+          </span>
         </div>
       </div>
       <TeamMembers data={teamMembers.items} />
