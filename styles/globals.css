@@ -886,6 +886,7 @@ h4 {
     }
     .mobile-image {
         display: flex;
+        margin-top: -20px;
         justify-content: center;
     }
     .talent-container-single h2 {
@@ -941,6 +942,24 @@ h4 {
     h2 {
         font-size: 40px;
         align-items: center;
+    }
+    .brand-flex-left {
+        margin-right: 40px;
+    }
+    .brand-flex-right img {
+        max-width: 75%;
+    }
+    .brand-flex-right p {
+        font-size: 20px;
+    }
+    .brands h3 {
+        font-size: 24px;
+    }
+    .back-to-gallery {
+        font-size: 18px;
+    }
+    .bio {
+        font-size: 22px;
     }
     h3 {
         min-width: inherit;

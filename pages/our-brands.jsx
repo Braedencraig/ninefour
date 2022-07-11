@@ -53,9 +53,9 @@ export default function Brands({ copy, brand }) {
           <img src={chevron.src} alt="" />
           <img src={chevron.src} alt="" />
 
+          {/* <img className="secret" src={chevron.src} alt="" />
           <img className="secret" src={chevron.src} alt="" />
-          <img className="secret" src={chevron.src} alt="" />
-          <img className="secret" src={chevron.src} alt="" />
+          <img className="secret" src={chevron.src} alt="" /> */}
         </div>
         <div className="brand-flex-right">
           <div key={title}>
