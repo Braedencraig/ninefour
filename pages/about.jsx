@@ -42,27 +42,39 @@ export default function About({ aboutInfo, teamMembers }) {
       </div>
       <div className="metrics">
         {metrics.map((metric, i) => {
-          const textArr = metric.split(" ");
-          if (i === 0) {
-            return (
-              <div className="metric" key={i}>
-                <span>
-                  <NumberCounter end={Number(textArr[0])} delay={2} className="increment" />
-                </span>
-                <div ref={myRef}>
-                  {textArr[1]} {textArr[2]}
+          if (metric !== undefined) {
+            const textArr = metric.split(" ");
+            if (i === 0) {
+              return (
+                <div className="metric" key={i}>
+                  <span>
+                    <NumberCounter end={Number(textArr[0])} delay={2} className="increment" />
+                  </span>
+                  <div ref={myRef}>
+                    <p>
+                      {textArr[1]} {textArr[2]}
+                    </p>
+                    <p>
+                      {textArr[3]} {textArr[4]}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          } else {
-            return (
-              <div className="metric" key={i}>
-                <span>
-                  <NumberCounter end={Number(textArr[0])} delay={2} className="increment" />
-                </span>
-                {textArr[1]} {textArr[2]}
-              </div>
-            );
+              );
+            } else {
+              return (
+                <div className="metric" key={i}>
+                  <span>
+                    <NumberCounter end={Number(textArr[0])} delay={2} className="increment" />
+                  </span>
+                  <p>
+                    {textArr[1]} {textArr[2]}
+                  </p>
+                  <p>
+                    {textArr[3]} {textArr[4]}
+                  </p>
+                </div>
+              );
+            }
           }
         })}
       </div>

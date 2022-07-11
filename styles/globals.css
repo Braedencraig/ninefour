@@ -538,7 +538,7 @@ h4 {
     font-family: "Righteous", cursive;
     font-size: 35px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 10vh 40px 20vh 40px;
 }
 
@@ -547,7 +547,13 @@ h4 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 220px;
+    width: 300px;
+}
+
+.metric p {
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .metric span {
