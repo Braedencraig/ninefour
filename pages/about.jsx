@@ -37,8 +37,10 @@ export default function About({ aboutInfo, teamMembers }) {
   return (
     <div className="about-container">
       <div className="about-banner">
-        <img src={background.src} alt="overlay" />
         <h2 className="about-hero">{title.content[0].content[0].value}</h2>
+      </div>
+      <div className="text">
+        Nine Four is founded on the idea that creators are the new founders. We exist and are driven by a roster of some of the most talented and ambitious creators in the world.
       </div>
       <div className="metrics">
         {metrics.map((metric, i) => {
@@ -89,7 +91,7 @@ export default function About({ aboutInfo, teamMembers }) {
           </span>
         </div>
       </div>
-      <TeamMembers data={teamMembers.items} />
+      {/* <TeamMembers data={teamMembers.items} /> */}
     </div>
   );
 }

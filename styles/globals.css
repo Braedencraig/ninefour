@@ -369,7 +369,7 @@ h4 {
 
 .socials p {
     font-size: 27px;
-    font-family: Righteous, "cursive";
+    font-family: "Righteous", "cursive";
 }
 
 .social svg {
@@ -404,6 +404,7 @@ h4 {
     padding-left: 5vw;
     width: 43vw;
     line-height: 1.33;
+    min-height: 250px;
 }
 
 
@@ -433,13 +434,30 @@ h4 {
 
 .talent-image {
     position: absolute;
-    right: 0;
+    right: -1px;
     top: 0;
+}
+
+.talent-image img {
+    max-width: 650px;
 }
 
 .talent-container-single {
     padding-bottom: 10vh;
     border-bottom: 1px solid white;
+}
+
+.text {
+    font-size: 35px;
+    font-family: proxima;
+    text-align: center;
+    width: 70%;
+    line-height: 1.3;
+    margin: 0 auto;
+    /* padding: 30px 0 60px 60px; */
+    background-color: white;
+    color: black;
+    padding: 60px 10% 30px 10%;
 }
 
 .talent-bar {
@@ -503,18 +521,29 @@ h4 {
 }
 
 .about-hero {
-    font-size: 170px;
-    width: 66%;
+    font-size: 100px;
+    margin-right: 0;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    /* width: 66%; */
 }
 
 .about-banner {
     display: flex;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+    justify-content: center;
+    /* display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     text-align: right;
     margin-top: 8vh;
-    padding-right: 40px;
+    padding-right: 40px; */
     /* padding: 0 40px; */
 }
 
@@ -522,7 +551,6 @@ h4 {
     font-family: "Righteous", cursive;
     line-height: 1;
     margin: 0;
-    margin-right: 15px;
     /* margin-top: 8vh; */
 }
 
@@ -539,7 +567,7 @@ h4 {
     font-size: 35px;
     display: flex;
     justify-content: space-around;
-    padding: 10vh 40px 20vh 40px;
+    padding: 5vh 12.5vw 5vh 12.5vw;
 }
 
 .metric {
@@ -758,7 +786,7 @@ h4 {
 
 @media only screen and (max-width: 1440px) {
     .about-banner h2 {
-        font-size: 120px;
+        font-size: 92px;
         /* margin-top: 25vh; */
     }
     .members {
@@ -789,7 +817,7 @@ h4 {
 
 @media only screen and (max-width: 1260px) {
     .talent-image {
-        top: 8.4vh;
+        top: 8.1vh;
     }
     .socials {
         flex-direction: column;
@@ -888,6 +916,13 @@ h4 {
         display: flex;
         margin-top: -20px;
         justify-content: center;
+        background: white;
+    }
+    .mobile-image img {
+        width: 100%;
+    }
+    .text {
+        width: 100%;
     }
     .talent-container-single h2 {
         border-bottom: none;
@@ -936,8 +971,14 @@ h4 {
 }
 
 @media only screen and (max-width: 768px) {
+    .metrics {
+        padding-bottom: 0;
+    }
     .about-banner h2 {
         font-size: 40px;
+    }
+    .text {
+        font-size: 26px;
     }
     h2 {
         font-size: 40px;
@@ -960,6 +1001,7 @@ h4 {
     }
     .bio {
         font-size: 22px;
+        padding: 0 5vw;
     }
     h3 {
         min-width: inherit;

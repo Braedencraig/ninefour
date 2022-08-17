@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import { useOnClickOutside } from "../hooks/useOnClick";
 import Link from "next/link";
@@ -47,8 +48,9 @@ const StyledMenu = styled.nav`
 `;
 
 const Menu = ({ open, setOpen }) => {
+  const router = useRouter();
   return (
-    <StyledMenu open={open}>
+    <StyledMenu open={open} isTalent={router.pathname.includes("talent")}>
       <Link href="/">
         <a onClick={() => setOpen(false)}>Home</a>
       </Link>
@@ -85,6 +87,11 @@ const StyledBurger = styled.button`
   padding: 0;
   z-index: 20;
 
+  @media (max-width: 900px) {
+    margin-top: 1rem;
+    left: 1rem;
+  }
+
   &:focus {
     outline: none;
   }
@@ -113,7 +120,73 @@ const StyledBurger = styled.button`
   }
 `;
 
+const StyledBurgerTalent = styled.button`
+  position: absolute;
+  position: relative;
+  margin-top: 5vh;
+  top: 5%;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20;
+
+  @media (max-width: 900px) {
+    margin-top: 1rem;
+    left: 1rem;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  div {
+    width: 2rem;
+    height: 0.25rem;
+    background: white;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+
+    @media (max-width: 900px) {
+      background: ${({ open }) => (open ? "white" : "black")};
+    }
+
+    :first-child {
+      transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
+    }
+
+    :nth-child(2) {
+      opacity: ${({ open }) => (open ? "0" : "1")};
+      transform: ${({ open }) => (open ? "translateX(20px)" : "translateX(0)")};
+    }
+
+    :nth-child(3) {
+      transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
+    }
+  }
+`;
+
 const Burger = ({ open, setOpen }) => {
+  const router = useRouter();
+
+  if (router.pathname.includes("/talent/[slug]")) {
+    return (
+      <StyledBurgerTalent open={open} onClick={() => setOpen(!open)}>
+        <div />
+        <div />
+        <div />
+      </StyledBurgerTalent>
+    );
+  }
+
   return (
     <StyledBurger open={open} onClick={() => setOpen(!open)}>
       <div />
