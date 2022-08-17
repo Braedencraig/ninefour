@@ -400,7 +400,7 @@ h4 {
 }
 
 .bio {
-    font-size: 27px;
+    font-size: 18px;
     padding-left: 5vw;
     width: 43vw;
     line-height: 1.33;
@@ -815,22 +815,6 @@ h4 {
     }
 }
 
-@media only screen and (max-width: 1260px) {
-    .talent-image {
-        top: 8.1vh;
-    }
-    .socials {
-        flex-direction: column;
-    }
-    .bio {
-        width: 94vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 40vh;
-        margin-bottom: 40px;
-    }
-}
-
 @media only screen and (max-width: 1200px) {
     .navbar__title {
         width: 33%;
@@ -840,6 +824,9 @@ h4 {
     }
     .member p {
         padding: 0 90px;
+    }
+    .bio {
+        width: 32vw;
     }
     /* .metrics {
         flex-direction: column;
@@ -856,6 +843,22 @@ h4 {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .talent-image {
+        top: 8.1vh;
+    }
+    .socials {
+        flex-direction: column;
+    }
+    .bio {
+        width: 94vw;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40vh;
+        margin-bottom: 40px;
     }
 }
 
@@ -1000,7 +1003,7 @@ h4 {
         font-size: 18px;
     }
     .bio {
-        font-size: 22px;
+        font-size: 18px;
         padding: 0 5vw;
     }
     h3 {
