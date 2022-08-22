@@ -5,7 +5,7 @@ export default function WorkWithUs({ copy }) {
   return (
     <div className="work-with-us">
       <h4>{copy.title}</h4>
-      <a href="mailto:webmaster@example.com">
+      <a href="mailto:poks@ninefourent.com">
         <MagneticButton
           className="button-2"
           style={{ backgroundColor: "transparent" }}
