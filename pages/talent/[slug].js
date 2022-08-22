@@ -56,6 +56,7 @@ export default function TalentDetails({ talent, talentImages }) {
     instagramurl,
     bio,
   } = talent.fields;
+
   return (
     <>
       <div className="talent-container-single">
@@ -64,19 +65,23 @@ export default function TalentDetails({ talent, talentImages }) {
             <img src={`https://${url}`} alt={description} />
           </div>
           <h2>{title}</h2>
-          <div className="socials">
-            <a href={instagramurl} className="socials-spacing">
-              <div className="social">
-                <FontAwesomeIcon icon={faInstagram} />
-              </div>
-              <p>{instagramfollowers}</p>
-            </a>
-            <a href={youtubeurl}>
-              <div className="social">
-                <FontAwesomeIcon icon={faYoutube} />
-              </div>
-              <p>{youtubefollowers}</p>
-            </a>
+          <div className={youtubefollowers !== undefined || instagramfollowers !== undefined ? "socials" : ""}>
+            {instagramfollowers !== undefined && (
+              <a href={instagramurl} className="socials-spacing">
+                <div className="social">
+                  <FontAwesomeIcon icon={faInstagram} />
+                </div>
+                <p>{instagramfollowers}</p>
+              </a>
+            )}
+            {youtubefollowers !== undefined && (
+              <a href={youtubeurl}>
+                <div className="social">
+                  <FontAwesomeIcon icon={faYoutube} />
+                </div>
+                <p>{youtubefollowers}</p>
+              </a>
+            )}
           </div>
           <p className="bio">{bio.content[0].content[0].value}</p>
           <Link href="/talent">

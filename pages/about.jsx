@@ -30,6 +30,11 @@ export default function About({ aboutInfo, teamMembers }) {
   const metrics = [aboutInfo.items[0].fields.metric1, aboutInfo.items[0].fields.metric2, aboutInfo.items[0].fields.metric3];
   const { carousel } = aboutInfo.items[0].fields;
   const carouselArr = carousel.content[0].content[0].value.split(" ");
+  carouselArr.map((word, i) => {
+    if (word === "Talent,") {
+      carouselArr[i] = "Talent Management";
+    }
+  });
 
   const myRef = useRef();
   const { inViewport, enterCount, leaveCount } = useInViewport(myRef);
