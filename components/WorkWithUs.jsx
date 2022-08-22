@@ -14,7 +14,7 @@ export default function WorkWithUs({ copy }) {
           speed={0.3}
           borderRadius="50%"
           onClick={() => {
-            console.log("click");
+            // console.log("click");
           }}
         >
           <MagneticButton
@@ -24,7 +24,7 @@ export default function WorkWithUs({ copy }) {
             speed={0.5}
             borderRadius="50%"
             onClick={() => {
-              console.log("click");
+              // console.log("click");
             }}
           >
             {copy.ctaText}

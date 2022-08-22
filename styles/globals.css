@@ -482,6 +482,7 @@ h4 {
 .talent-circle {
     text-align: center;
     position: relative;
+    width: 110px;
 }
 
 .talent-circle p {
@@ -497,6 +498,8 @@ h4 {
     width: 80%;
     margin: 0 auto;
     text-align: center;
+    margin: 0 auto;
+    padding: 0;
     margin-bottom: 20px;
 }
 
@@ -669,7 +672,7 @@ h4 {
     padding: 0px 40px;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 200px;
+    padding-bottom: 150px;
 }
 
 .brands h3 {

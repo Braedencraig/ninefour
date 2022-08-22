@@ -14,7 +14,7 @@ export async function getStaticProps() {
   const talent = await client.getEntries({ content_type: "talent" });
 
   const talentInfo = await client.getEntries({ content_type: "talentPage" });
-  console.log(talentInfo);
+  // console.log(talentInfo);
 
   return {
     props: {
@@ -87,8 +87,8 @@ export default function Talent({ talent, talentInfo }) {
     setShuff(shuffle(talent));
   }, [shuffTalent, talent]);
 
-  console.log(talent);
-  console.log(shuffTalent);
+  // console.log(talent);
+  // console.log(shuffTalent);
   return (
     <div className="talent">
       <div className="talent-container">
