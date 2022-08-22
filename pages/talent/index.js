@@ -14,7 +14,7 @@ export async function getStaticProps() {
   const talent = await client.getEntries({ content_type: "talent" });
 
   const talentInfo = await client.getEntries({ content_type: "talentPage" });
-  // console.log(talentInfo);
+  // console.log(talentaInfo);
 
   return {
     props: {
