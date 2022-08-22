@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useRef } from "react";
 import { createClient } from "contentful";
-import background from "../public/assets/background.png";
+// import background from "../public/assets/background.png";
 import TeamMembers from "../components/TeamMembers";
 import { useInViewport } from "react-in-viewport";
 
