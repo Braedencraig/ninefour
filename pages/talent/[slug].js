@@ -13,34 +13,6 @@ const client = createClient({
   accessToken: process.env.CONTENTFUL_SPACE_TOKEN,
 });
 
-export const getStaticPaths = async () => {
-  const res = await client.getEntries({ content_type: "talent" });
-
-  const paths = res.items.map((item) => {
-    return {
-      params: { slug: item.fields.slug },
-    };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export async function getStaticProps({ params }) {
-  const { items } = await client.getEntries({
-    content_type: "talent",
-    "fields.slug": params.slug,
-  });
-
-  const talentImages = await client.getEntries({ content_type: "talent" });
-
-  return {
-    props: { talent: items[0], talentImages: talentImages.items },
-  };
-}
-
 export default function TalentDetails({ talent, talentImages }) {
   const {
     title,
@@ -130,4 +102,33 @@ export default function TalentDetails({ talent, talentImages }) {
       <TalentBar data={talentImages} />
     </>
   );
+}
+
+export const getStaticPaths = async () => {
+  const res = await client.getEntries({ content_type: "talent" });
+
+  const paths = res.items.map((item) => {
+    return {
+      params: { slug: item.fields.slug },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export async function getStaticProps({ params }) {
+  const { items } = await client.getEntries({
+    content_type: "talent",
+    "fields.slug": params.slug,
+  });
+
+  const talentImages = await client.getEntries({ content_type: "talent" });
+
+  return {
+    props: { talent: items[0], talentImages: talentImages.items },
+    revalidate: 10,
+  };
 }
