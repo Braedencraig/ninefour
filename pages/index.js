@@ -8,22 +8,6 @@ import { createClient } from "contentful";
 import logo from "../public/assets/logo.png";
 import styles from "../styles/Home.module.css";
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_SPACE_TOKEN,
-  });
-
-  const homepage = await client.getEntries({ content_type: "homepage" });
-
-  return {
-    props: {
-      homepage: homepage.items,
-    },
-    revalidate: 1,
-  };
-}
-
 export default function Home({ homepage }) {
   const { fields } = homepage[0];
   const titleText = fields.title.split(" ");
@@ -51,4 +35,20 @@ export default function Home({ homepage }) {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_SPACE_TOKEN,
+  });
+
+  const homepage = await client.getEntries({ content_type: "homepage" });
+
+  return {
+    props: {
+      homepage: homepage.items,
+    },
+    revalidate: 10,
+  };
 }

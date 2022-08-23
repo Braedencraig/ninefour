@@ -7,24 +7,6 @@ import { useInViewport } from "react-in-viewport";
 
 import NumberCounter from "number-counter";
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_SPACE_TOKEN,
-  });
-
-  const aboutInfo = await client.getEntries({ content_type: "about" });
-  const teamMembers = await client.getEntries({ content_type: "teamMember" });
-
-  return {
-    props: {
-      aboutInfo,
-      teamMembers,
-    },
-    revalidate: 1,
-  };
-}
-
 export default function About({ aboutInfo, teamMembers }) {
   const { title } = aboutInfo.items[0].fields;
   const metrics = [aboutInfo.items[0].fields.metric1, aboutInfo.items[0].fields.metric2, aboutInfo.items[0].fields.metric3];
@@ -99,4 +81,22 @@ export default function About({ aboutInfo, teamMembers }) {
       {/* <TeamMembers data={teamMembers.items} /> */}
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_SPACE_TOKEN,
+  });
+
+  const aboutInfo = await client.getEntries({ content_type: "about" });
+  const teamMembers = await client.getEntries({ content_type: "teamMember" });
+
+  return {
+    props: {
+      aboutInfo,
+      teamMembers,
+    },
+    revalidate: 10,
+  };
 }

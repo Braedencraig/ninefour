@@ -5,26 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { createClient } from "contentful";
 
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_SPACE_TOKEN,
-  });
-
-  const talent = await client.getEntries({ content_type: "talent" });
-
-  const talentInfo = await client.getEntries({ content_type: "talentPage" });
-  // console.log(talentsaInfo);
-
-  return {
-    props: {
-      talent: talent.items,
-      talentInfo: talentInfo.items,
-    },
-    revalidate: 1,
-  };
-}
-
 export default function Talent({ talent, talentInfo }) {
   const [shuffTalent, setShuff] = useState([]);
   // useEffect(() => {
@@ -66,6 +46,12 @@ export default function Talent({ talent, talentInfo }) {
   // }
   // });
 
+  const [isSSR, setIsSSR] = useState(true);
+
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
+
   useEffect(() => {
     function shuffle(array) {
       let currentIndex = array.length,
@@ -87,30 +73,49 @@ export default function Talent({ talent, talentInfo }) {
     setShuff(shuffle(talent));
   }, [shuffTalent, talent]);
 
-  // console.log(talent);
-  // console.log(shuffTalent);
   return (
     <div className="talent">
       <div className="talent-container">
-        {shuffTalent.map((item, i) => (
-          <div key={item.sys.id} className={`img img${i + 1} talent-item`}>
-            <Link href={`/talent/${item.fields.slug}`}>
-              <a>
-                <Image
-                  alt={item.fields.image.fields.description}
-                  src={`https:${item.fields.thumbnail.fields.file.url}`}
-                  width={item.fields.thumbnail.fields.file.details.image.width}
-                  height={item.fields.thumbnail.fields.file.details.image.height}
-                />
-                <div className="talent-item-text">
-                  {item.fields.title} <span>+</span>
-                </div>
-              </a>
-            </Link>
-          </div>
-        ))}
+        {shuffTalent.map((item, i) => {
+          return (
+            <div key={item.sys.id} className={`img img${i + 1} talent-item`}>
+              <Link href={`/talent/${item.fields.slug}`}>
+                <a>
+                  <Image
+                    alt={item.fields.image.fields.description}
+                    src={`https:${item.fields.thumbnail.fields.file.url}`}
+                    width={item.fields.thumbnail.fields.file.details.image.width}
+                    height={item.fields.thumbnail.fields.file.details.image.height}
+                  />
+                  <div className="talent-item-text">
+                    {item.fields.title} <span>+</span>
+                  </div>
+                </a>
+              </Link>
+            </div>
+          );
+        })}
       </div>
-      <WorkWithUs copy={talentInfo[0].fields} />
+      {!isSSR && <WorkWithUs copy={talentInfo[0].fields} />}
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_SPACE_TOKEN,
+  });
+
+  const talent = await client.getEntries({ content_type: "talent" });
+
+  const talentInfo = await client.getEntries({ content_type: "talentPage" });
+
+  return {
+    props: {
+      talent: talent.items,
+      talentInfo: talentInfo.items,
+    },
+    revalidate: 10,
+  };
 }
