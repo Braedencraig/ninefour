@@ -68,7 +68,8 @@ export default function About({ aboutInfo, teamMembers }) {
         })}
       </div>
       <div className="scroll">
-        <div className="m-scroll">
+      <div className="text" style={{marginTop: 0, paddingTop: 0}}>We believe Creators are the new Founders. Our goal as talent managers is not just to build personalities, but to build creators into real business owners. We’re proud to have been able to launch some of the fastest growing creator driven brands in the industry!</div>
+        {/* <div className="m-scroll">
           <span>
             {" "}
             ━━━━━━━━{" "}
@@ -76,7 +77,7 @@ export default function About({ aboutInfo, teamMembers }) {
               return <>{item.replace(",", " ━━━━━━━━ ").toUpperCase()}</>;
             })}
           </span>
-        </div>
+        </div> */}
       </div>
       {/* <TeamMembers data={teamMembers.items} /> */}
     </div>
