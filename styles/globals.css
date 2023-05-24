@@ -468,13 +468,18 @@ h4 {
 .talent-bar {
     padding: 0 5vw;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     max-width: 1600px;
     padding-bottom: 5vh;
     margin: 0 auto;
     margin-top: 30px;
     align-items: flex-end;
-    display: none;
+    flex-wrap: wrap;
+    /* display: none; */
+}
+
+.talent-circle {
+    margin-bottom: 20px;
 }
 
 .talent-bar span {

@@ -33,7 +33,7 @@ export default function TalentBar({ data }) {
           <div className="talent-circle" key={title}>
             <Link href={`/talent/${slug}`}>
               <a>
-                <p>{tinycircle.fields.title}</p>
+                {/* <p>{tinycircle.fields.title}</p> */}
                 <img src={`https://${tinycircle.fields.file.url}`} alt={title} />
               </a>
             </Link>
