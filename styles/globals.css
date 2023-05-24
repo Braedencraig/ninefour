@@ -474,6 +474,7 @@ h4 {
     margin: 0 auto;
     margin-top: 30px;
     align-items: flex-end;
+    display: none;
 }
 
 .talent-bar span {

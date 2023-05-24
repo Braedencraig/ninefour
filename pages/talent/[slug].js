@@ -5,6 +5,7 @@ import TalentBar from "../../components/TalentBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 
 import { createClient } from "contentful";
 
@@ -29,6 +30,8 @@ export default function TalentDetails({ talent, talentImages }) {
     bio,
   } = talent.fields;
 
+  console.log(title);
+
   return (
     <>
       <div className="talent-container-single">
@@ -37,8 +40,21 @@ export default function TalentDetails({ talent, talentImages }) {
             <img src={`https://${url}`} alt={description} />
           </div>
           <h2>{title}</h2>
-          <div className={youtubefollowers !== undefined || instagramfollowers !== undefined ? "socials" : ""}>
-            {instagramfollowers !== undefined && (
+          <div
+            className={
+              youtubefollowers !== undefined || instagramfollowers !== undefined
+                ? "socials"
+                : ""
+            }
+          >
+            {title === "Brain Leak" && (
+              <a href={instagramurl} className="socials-spacing">
+                <div className="social">
+                  <FontAwesomeIcon icon={faSpotify} />
+                </div>
+              </a>
+            )}
+            {instagramfollowers !== undefined && title !== "Brain Leak" && (
               <a href={instagramurl} className="socials-spacing">
                 <div className="social">
                   <FontAwesomeIcon icon={faInstagram} />
@@ -46,7 +62,7 @@ export default function TalentDetails({ talent, talentImages }) {
                 <p>{instagramfollowers}</p>
               </a>
             )}
-            {youtubefollowers !== undefined && (
+            {youtubefollowers !== undefined && title !== "Brain Leak" && (
               <a href={youtubeurl}>
                 <div className="social">
                   <FontAwesomeIcon icon={faYoutube} />
@@ -79,18 +95,29 @@ export default function TalentDetails({ talent, talentImages }) {
             <img src={`https://${url}`} alt={description} />
           </div> */}
           <div className="socials">
-            <a href={instagramurl} className="socials-spacing">
-              <div className="social">
-                <FontAwesomeIcon icon={faInstagram} />
-              </div>
-              <p>{instagramfollowers}</p>
-            </a>
-            <a href={youtubeurl}>
-              <div className="social">
-                <FontAwesomeIcon icon={faYoutube} />
-              </div>
-              <p>{youtubefollowers}</p>
-            </a>
+            {title === "Brain Leak" && (
+              <a href={instagramurl} className="socials-spacing">
+                <div className="social">
+                  <FontAwesomeIcon icon={faSpotify} />
+                </div>
+              </a>
+            )}
+            {instagramfollowers !== undefined && title !== "Brain Leak" && (
+              <a href={instagramurl} className="socials-spacing">
+                <div className="social">
+                  <FontAwesomeIcon icon={faInstagram} />
+                </div>
+                <p>{instagramfollowers}</p>
+              </a>
+            )}
+            {youtubefollowers !== undefined && title !== "Brain Leak" && (
+              <a href={youtubeurl}>
+                <div className="social">
+                  <FontAwesomeIcon icon={faYoutube} />
+                </div>
+                <p>{youtubefollowers}</p>
+              </a>
+            )}
           </div>
           <p className="bio">{bio.content[0].content[0].value}</p>
         </div>
