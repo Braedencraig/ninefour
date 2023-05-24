@@ -18,14 +18,18 @@ export default function Brands({ copy, brand }) {
   const BrandItem = ({ data, idx }) => {
     const { title, info, image } = data;
 
+
     return (
-      <div className="brand-flex">
+      <div className="brand-flex" >
         <div className="brand-flex-left">
           <>
-            <div className="section" />
             <div id="trigger" />
+            <div className="section" />
             <Controller>
-              <Scene duration={210} offset={idx === 0 ? 0 : idx * 210} classToggle="add-pulse" triggerElement="#trigger">
+              {/* <Scene duration={210} offset={idx === 0 ? 0 : idx * 210} classToggle="add-pulse" triggerElement="#trigger">
+                {(progress, event) => <div className="pulse circle"></div>}
+              </Scene> */}
+               <Scene duration={210}>
                 {(progress, event) => <div className="pulse circle"></div>}
               </Scene>
             </Controller>

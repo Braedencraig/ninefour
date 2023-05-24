@@ -13,6 +13,11 @@
     src: url(../public/assets/proximathin.otf);
 }
 
+
+.brand-flex-right img {
+    max-width: 299px;
+}
+
 html,
 body {
     padding: 0;
