@@ -26,10 +26,7 @@ export default function Brands({ copy, brand }) {
             <div id="trigger" />
             <div className="section" />
             <Controller>
-              {/* <Scene duration={210} offset={idx === 0 ? 0 : idx * 210} classToggle="add-pulse" triggerElement="#trigger">
-                {(progress, event) => <div className="pulse circle"></div>}
-              </Scene> */}
-               <Scene duration={210}>
+              <Scene duration={210} offset={idx === 0 ? 0 : idx * 210} classToggle="add-pulse" triggerElement="#trigger">
                 {(progress, event) => <div className="pulse circle"></div>}
               </Scene>
             </Controller>
@@ -38,10 +35,6 @@ export default function Brands({ copy, brand }) {
           <img src={chevron.src} alt="" />
           <img src={chevron.src} alt="" />
           <img src={chevron.src} alt="" />
-
-          {/* <img className="secret" src={chevron.src} alt="" />
-          <img className="secret" src={chevron.src} alt="" />
-          <img className="secret" src={chevron.src} alt="" /> */}
         </div>
         <div className="brand-flex-right">
           <div key={title}>

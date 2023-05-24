@@ -890,6 +890,11 @@ h4 {
         max-width: none;
         padding-left: 0;
     }
+
+    .brands-info {
+        padding-top: 75px;
+    }
+
     .metrics,
     .members {
         flex-direction: column;
