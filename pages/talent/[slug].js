@@ -54,22 +54,38 @@ export default function TalentDetails({ talent, talentImages }) {
                 </div>
               </a>
             )}
-            {instagramfollowers !== undefined && title !== "Brain Leak" && (
-              <a href={instagramurl} className="socials-spacing">
+            {title === "Yokai" && (
+              <a
+                href={
+                  "https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1"
+                }
+                className="socials-spacing"
+              >
                 <div className="social">
-                  <FontAwesomeIcon icon={faInstagram} />
+                  <FontAwesomeIcon icon={faSpotify} />
                 </div>
-                <p>{instagramfollowers}</p>
               </a>
             )}
-            {youtubefollowers !== undefined && title !== "Brain Leak" && (
-              <a href={youtubeurl}>
-                <div className="social">
-                  <FontAwesomeIcon icon={faYoutube} />
-                </div>
-                <p>{youtubefollowers}</p>
-              </a>
-            )}
+            {instagramfollowers !== undefined &&
+              title !== "Brain Leak" &&
+              title !== "Yokai" && (
+                <a href={instagramurl} className="socials-spacing">
+                  <div className="social">
+                    <FontAwesomeIcon icon={faInstagram} />
+                  </div>
+                  <p>{instagramfollowers}</p>
+                </a>
+              )}
+            {youtubefollowers !== undefined &&
+              title !== "Brain Leak" &&
+              title !== "Yokai" && (
+                <a href={youtubeurl}>
+                  <div className="social">
+                    <FontAwesomeIcon icon={faYoutube} />
+                  </div>
+                  <p>{youtubefollowers}</p>
+                </a>
+              )}
           </div>
           <p className="bio">{bio.content[0].content[0].value}</p>
           <Link href="/talent">
@@ -93,10 +109,22 @@ export default function TalentDetails({ talent, talentImages }) {
           <h2>{title}</h2>
           {/* <div className="mobile-image">
             <img src={`https://${url}`} alt={description} />
-          </div> */}
+          </div> https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1 */}
           <div className="socials">
             {title === "Brain Leak" && (
               <a href={instagramurl} className="socials-spacing">
+                <div className="social">
+                  <FontAwesomeIcon icon={faSpotify} />
+                </div>
+              </a>
+            )}
+            {title === "Yokai" && (
+              <a
+                href={
+                  "https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1"
+                }
+                className="socials-spacing"
+              >
                 <div className="social">
                   <FontAwesomeIcon icon={faSpotify} />
                 </div>
