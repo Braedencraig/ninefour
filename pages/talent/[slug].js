@@ -121,8 +121,19 @@ export default function TalentDetails({ talent, talentImages }) {
           </div>
           <p className="bio">{bio.content[0].content[0].value}</p>
         </div>
-        <div className="talent-image">
-          <img src={`https://${url}`} alt={description} />
+        <div
+          className="talent-image"
+          style={{
+            backgroundImage: `url("https://${url}")`,
+            backgroundPosition: "center",
+            backgroundSize: "550px",
+            width: "550px",
+            height: "550px",
+            clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          {/* <img src={`https://${url}`} alt={description} /> */}
           {/* <img className="overlay" src="../assets/overlay.png" alt="overlay for image" /> */}
         </div>
       </div>

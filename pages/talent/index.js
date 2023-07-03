@@ -64,7 +64,10 @@ export default function Talent({ talent, talentInfo }) {
         currentIndex--;
 
         // And swap it with the current element.
-        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex],
+          array[currentIndex],
+        ];
       }
 
       return array;
@@ -78,21 +81,22 @@ export default function Talent({ talent, talentInfo }) {
       <div className="talent-container">
         {shuffTalent.map((item, i) => {
           return (
-            <div key={item.sys.id} className={`img img${i + 1} talent-item`}>
-              <Link href={`/talent/${item.fields.slug}`}>
-                <a>
-                  <Image
-                    alt={item.fields.image.fields.description}
-                    src={`https:${item.fields.thumbnail.fields.file.url}`}
-                    width={item.fields.thumbnail.fields.file.details.image.width}
-                    height={item.fields.thumbnail.fields.file.details.image.height}
-                  />
+            <Link key={item.sys.id} href={`/talent/${item.fields.slug}`}>
+              <a
+                className={`img img${i + 1} talent-item testing`}
+                style={{
+                  backgroundImage: `url("https:${item.fields.image.fields.file.url}")`,
+                  backgroundPosition: "center",
+                  backgroundSize: "500px",
+                }}
+              >
+                <div>
                   <div className="talent-item-text">
                     {item.fields.title} <span>+</span>
                   </div>
-                </a>
-              </Link>
-            </div>
+                </div>
+              </a>
+            </Link>
           );
         })}
       </div>

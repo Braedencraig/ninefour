@@ -28,13 +28,12 @@ export default function TalentBar({ data }) {
 
   return (
     <div className="talent-bar">
-      {shuffTalent.map(({ fields: { tinycircle, title, slug } }) => {
+      {shuffTalent.map(({ fields: { image, title, slug } }) => {
         return (
           <div className="talent-circle" key={title}>
             <Link href={`/talent/${slug}`}>
               <a>
-                {/* <p>{tinycircle.fields.title}</p> */}
-                <img src={`https://${tinycircle.fields.file.url}`} alt={title} />
+                <img src={`https://${image.fields.file.url}`} alt={title} />
               </a>
             </Link>
           </div>
