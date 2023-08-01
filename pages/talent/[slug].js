@@ -30,8 +30,6 @@ export default function TalentDetails({ talent, talentImages }) {
     bio,
   } = talent.fields;
 
-  console.log(title);
-
   return (
     <>
       <div className="talent-container-single">

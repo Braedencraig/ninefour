@@ -18,15 +18,31 @@ export default function Brands({ copy, brand }) {
   const BrandItem = ({ data, idx }) => {
     const { title, info, image } = data;
 
+    const brandLinks = {
+      ["Habit"]: "https://drinkhabit.com/",
+      ["Wing SZN"]: "https://www.wingszn.com/",
+      ["Cloak"]: "https://cloakbrand.com/",
+    };
+
+    const openInNewTab = (url) => {
+      if(url !== undefined) {
+        window.open(url, "_blank", "noreferrer");
+      }
+    };
 
     return (
-      <div className="brand-flex" >
+      <div onClick={() => openInNewTab(brandLinks[title])} className="brand-flex" style={{cursor: brandLinks[title] ? 'pointer' : 'default'}}>
         <div className="brand-flex-left">
           <>
             <div id="trigger" />
             <div className="section" />
             <Controller>
-              <Scene duration={210} offset={idx === 0 ? 0 : idx * 210} classToggle="add-pulse" triggerElement="#trigger">
+              <Scene
+                duration={210}
+                offset={idx === 0 ? 0 : idx * 210}
+                classToggle="add-pulse"
+                triggerElement="#trigger"
+              >
                 {(progress, event) => <div className="pulse circle"></div>}
               </Scene>
             </Controller>
@@ -51,7 +67,13 @@ export default function Brands({ copy, brand }) {
       <div className="brands-info">
         <div className="brands-list">
           {brand.items.map((item, i) => {
-            return <BrandItem idx={i} key={`${item.title}-${i}`} data={item.fields} />;
+            return (
+              <BrandItem
+                idx={i}
+                key={`${item.title}-${i}`}
+                data={item.fields}
+              />
+            );
           })}
         </div>
       </div>
