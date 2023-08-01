@@ -83,11 +83,13 @@ export default function Talent({ talent, talentInfo }) {
           return (
             <Link key={item.sys.id} href={`/talent/${item.fields.slug}`}>
               <a
-                className={`img img${i + 1} talent-item testing`}
+                className={`img img${i + 1} talent-item testing ${
+                  item.fields.title === "Legendary Jay" ? "talent-item-jay" : ""
+                }`}
                 style={{
                   backgroundImage: `url("https:${item.fields.image.fields.file.url}")`,
                   backgroundPosition: "center",
-                  backgroundSize: "500px",
+                  backgroundSize: "550px",
                 }}
               >
                 <div>
