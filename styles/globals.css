@@ -667,21 +667,29 @@ h4 {
 
 .members {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
-  width: 70%;
-  margin: 10vh auto 15vh auto;
+  /* width: 70%; */
+  margin: 10vh auto 35vh auto;
   font-family: "Righteous", cursive;
 }
 
 .member {
-  width: 50%;
+  width: 30%;
   text-align: center;
   font-size: 35px;
+  height: 700px;
+}
+
+.member img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* max-height: 300px; */
 }
 
 .member p {
-  padding: 0 60px;
+  padding: 0 30px;
 }
 
 .member-bio {
@@ -821,9 +829,9 @@ h4 {
     font-size: 92px;
     /* margin-top: 25vh; */
   }
-  .members {
+  /* .members {
     width: 80%;
-  }
+  } */
   /* .talent-container {
         justify-content: space-around;
     } */
@@ -853,9 +861,23 @@ h4 {
   }
   .members {
     width: 100%;
+    flex-direction: column;
+    align-items:center;
+    margin: 10vh auto 5vh auto;
+  }
+
+  .member img {
+    object-fit: cover;
+    max-height: 800px;
+  }
+
+  .member {
+    width: 50%;
+    height: auto;
+    margin-bottom: 40px;
   }
   .member p {
-    padding: 0 90px;
+    padding: 0 30px;
   }
   .bio {
     width: 32vw;
