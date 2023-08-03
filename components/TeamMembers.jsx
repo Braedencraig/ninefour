@@ -15,8 +15,8 @@ export default function TeamMember({ data }) {
     },
     {
       name: 'Colleen Rowbottom',
-      bio: 'Rowbottom, 27, has worked in various sectors of entertainment with a focus on Music for the past 6 years. Coming from WME, she now serves as Talent Coordinator at Nine Four, where she assists with a wide range of management duties for some of the most exciting creators in the digital world.',
-      image: '../assets/colleen.jpg'
+      bio: 'Rowbottom, 27, has worked in various sectors of entertainment with a focus on Music for the past six years. Coming from WME, she now serves as Talent Coordinator at Nine Four, where she assists with a wide range of management duties for some of the most exciting creators in the digital world.',
+      image: '../assets/colleen2.jpg'
     }
   ]
 
