@@ -392,6 +392,22 @@ h4 {
   font-family: "Righteous", "cursive";
 }
 
+.listen {
+  font-size: 22px;
+  font-family: "Righteous", "cursive";
+  border: 2px solid white;
+  padding-right: 0px !important;
+  padding: 4px 16px !important;
+  transition:all 0.3s ease-in-out;
+}
+
+.listen:hover {
+  background: white;
+  color: black;
+}
+
+
+
 .social svg {
   color: black;
   border: 10px solid white;

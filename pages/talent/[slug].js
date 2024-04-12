@@ -42,7 +42,7 @@ export default function TalentDetails({ talent, talentImages }) {
             className={
               youtubefollowers !== undefined || instagramfollowers !== undefined
                 ? "socials"
-                : ""
+                : "socials"
             }
           >
             {title === "Brain Leak" && (
@@ -58,10 +58,21 @@ export default function TalentDetails({ talent, talentImages }) {
                   "https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1"
                 }
                 className="socials-spacing"
+                style={{ paddingLeft: "5vw" }}
               >
                 <div className="social">
                   <FontAwesomeIcon icon={faSpotify} />
                 </div>
+              </a>
+            )}
+            {title === "Blowback" && (
+              <a
+                href={
+                  "https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1"
+                }
+                className="socials-spacing listen"
+              >
+                Listen here
               </a>
             )}
             {instagramfollowers !== undefined &&
@@ -86,6 +97,7 @@ export default function TalentDetails({ talent, talentImages }) {
               )}
           </div>
           <p className="bio">{bio.content[0].content[0].value}</p>
+
           <Link href="/talent">
             <a className="back-to-gallery">
               <div className="boxes">
@@ -126,6 +138,16 @@ export default function TalentDetails({ talent, talentImages }) {
                 <div className="social">
                   <FontAwesomeIcon icon={faSpotify} />
                 </div>
+              </a>
+            )}
+            {title === "Blowback" && (
+              <a
+                href={
+                  "https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1"
+                }
+                className="socials-spacing listen"
+              >
+                Listen here
               </a>
             )}
             {instagramfollowers !== undefined && title !== "Brain Leak" && (
