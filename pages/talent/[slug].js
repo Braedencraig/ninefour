@@ -67,9 +67,7 @@ export default function TalentDetails({ talent, talentImages }) {
             )}
             {title === "Blowback" && (
               <a
-                href={
-                  "https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1"
-                }
+                href={"https://blowback.show/"}
                 className="socials-spacing listen"
               >
                 Listen here
@@ -142,9 +140,7 @@ export default function TalentDetails({ talent, talentImages }) {
             )}
             {title === "Blowback" && (
               <a
-                href={
-                  "https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1"
-                }
+                href={"https://blowback.show/"}
                 className="socials-spacing listen"
               >
                 Listen here
