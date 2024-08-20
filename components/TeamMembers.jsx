@@ -4,11 +4,6 @@ import React from "react";
 export default function TeamMember({ data }) {
   const teamMembersObj = [
     {
-      name: "David Rosemon",
-      bio: "Rosemon, 28, has worked in the creator economy for over five years. He previously represented talent for industry-leading agencies including Fullscreen, UTA, Select and Jellysmack. He also ran his own boutique talent management company RAM, where he represented both digital and traditional talent. Based in LA, he currently serves as talent manager and COO at Nine Four.",
-      image: "../assets/david.jpg",
-    },
-    {
       name: "Parker Oks",
       bio: "Oks, 29, launched Nine Four Entertainment in 2022, working with content creators on talent management and business development. He serves as CEO of the company. He has been in the creator and entertainment industry for over six years. Based in Las Vegas, his previous experience includes working with actors and creators at Brillstein Entertainment Partners and Daylight Holdings.",
       image: "../assets/oks-new.jpeg",
