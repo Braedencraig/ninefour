@@ -21,7 +21,14 @@ export default function Home({ homepage }) {
     <div className="full-screen-video-container">
       <HeadInfo />
       <div className="overlay"></div>
-      <video id="video" autoPlay muted loop playsInline src={`https://${fields.video.fields.file.url}`}></video>
+      <video
+        id="video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        src={`https://${fields.video.fields.file.url}`}
+      ></video>
       <div className="heroText">
         <h1>{fields.title}</h1>
         <h2>

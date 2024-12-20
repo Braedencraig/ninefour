@@ -73,6 +73,14 @@ export default function TalentDetails({ talent, talentImages }) {
                 Listen here
               </a>
             )}
+            {title === "American Prestige" && (
+              <a
+                href={"https://americanprestige.supportingcast.fm/listen"}
+                className="socials-spacing listen"
+              >
+                Listen here
+              </a>
+            )}
             {instagramfollowers !== undefined &&
               title !== "Brain Leak" &&
               title !== "Yokai" && (
@@ -141,6 +149,14 @@ export default function TalentDetails({ talent, talentImages }) {
             {title === "Blowback" && (
               <a
                 href={"https://blowback.show/"}
+                className="socials-spacing listen"
+              >
+                Listen here
+              </a>
+            )}
+            {title === "American Prestige" && (
+              <a
+                href={"https://americanprestige.supportingcast.fm/listen"}
                 className="socials-spacing listen"
               >
                 Listen here
