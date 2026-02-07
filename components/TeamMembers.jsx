@@ -9,9 +9,9 @@ export default function TeamMember({ data }) {
       image: "../assets/oks-new.jpg",
     },
     {
-      name: "Mark Miskell",
-      bio: "Mark Miskell serves as an Assistant at Nine Four Entertainment, bringing six years of experience in the entertainment industry. Passionate about the digital creator space, Mark plays a vital role in supporting talent and driving projects forward. Based in Los Angeles, his previous experience includes working with actors and writers at LRE.",
-      image: "../assets/mark-new.jpg",
+      name: "Taryn Rose",
+      bio: "Taryn is a coordinator at Nine Four, previously having spent five years in the digital space supporting creators. Deeply passionate about content creators, she is excited to work across platforms with strong talent. Taryn assists in the operations and campaign management across the talent at Nine Four.",
+      image: "../assets/taryn.jpg",
     },
     {
       name: "Colleen Rowbottom",
