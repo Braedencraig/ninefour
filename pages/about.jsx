@@ -18,7 +18,7 @@ export default function About({ aboutInfo, teamMembers }) {
     {
       name: 'Parker Oks',
       bio: 'Oks, 29, launched Nine Four Entertainment in 2022, working with content creators on talent management and business development. He serves as CEO of the company. He has been in the creator and entertainment industry for over six years. Based in Las Vegas, his previous experience includes working with actors and creators at Brillstein Entertainment Partners and Daylight Holdings.',
-      image: '../assets/oks.jpg'
+      image: '../assets/oks-new.jpg'
     },
     {
       name: 'Colleen Rowbottom',
