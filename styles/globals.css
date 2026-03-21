@@ -331,8 +331,10 @@ header {
   margin-bottom: 50px;
   position: relative;
   height: 340px;
-  background-size: 550px;
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .talent-item-text {
@@ -918,13 +920,6 @@ h4 {
     margin-right: auto;
   }
 
-  .talent-item {
-    background-size: 400px !important;
-  }
-
-  .talent-item-jay {
-    background-size: 550px !important;
-  }
 }
 
 @media only screen and (max-width: 1050px) {

@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import WorkWithUs from "../../components/WorkWithUs";
 import Link from "next/link";
-import Image from "next/image";
 import { createClient } from "contentful";
 
 export default function Talent({ talent, talentInfo }) {
@@ -83,20 +82,9 @@ export default function Talent({ talent, talentInfo }) {
           return (
             <Link key={item.sys.id} href={`/talent/${item.fields.slug}`}>
               <a
-                className={`img img${i + 1} talent-item testing ${
-                  item.fields.title === "Legendary Jay" ||
-                  item.fields.title === "Dontai"
-                    ? "talent-item-jay"
-                    : ""
-                }`}
+                className={`img img${i + 1} talent-item testing`}
                 style={{
                   backgroundImage: `url("https:${item.fields.image.fields.file.url}")`,
-                  //               backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),
-                  // url("https:${item.fields.image.fields.file.url}")`,
-                  //               backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),
-                  // url("https:${item.fields.image.fields.file.url}")`,
-                  backgroundPosition: "center",
-                  backgroundSize: "550px",
                 }}
               >
                 <div>
