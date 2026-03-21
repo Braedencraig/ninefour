@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import HeadInfo from "../components/HeadInfo";
 import { createClient } from "contentful";
 import logo from "../public/assets/logo.png";
@@ -27,7 +26,12 @@ export default function Home({ homepage }) {
         <h2>
           <span>{titleText[0]}</span>
           <span className="heroImgSpan">
-            <Image src={logo} alt="Nine Four entertainment logo" />
+            <img
+              src={logo.src}
+              alt="Nine Four entertainment logo"
+              width={logo.width}
+              height={logo.height}
+            />
           </span>
           <span>{titleText[1]}</span>
         </h2>
