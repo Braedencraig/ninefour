@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import TalentBar from "../../components/TalentBar";
+import contentfulImageLoader from "../../components/contentfulImageLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -99,6 +100,7 @@ export default function TalentDetails({ talent, talentImages }) {
             <Image
               src={imageUrl}
               alt={description || `${title} portrait`}
+              loader={contentfulImageLoader}
               layout="fill"
               objectFit="cover"
               sizes="(max-width: 850px) 100vw, 50vw"

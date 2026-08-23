@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import contentfulImageLoader from "./contentfulImageLoader";
 
 export default function TalentBar({ data, currentSlug }) {
   const remainingTalent = data.filter(
@@ -23,6 +24,7 @@ export default function TalentBar({ data, currentSlug }) {
                   <Image
                     src={imageUrl}
                     alt={image.fields.description || `${title} portrait`}
+                    loader={contentfulImageLoader}
                     layout="fill"
                     objectFit="cover"
                     sizes="120px"

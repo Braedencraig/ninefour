@@ -3,6 +3,7 @@ import WorkWithUs from "../../components/WorkWithUs";
 import Link from "next/link";
 import Image from "next/image";
 import { createClient } from "contentful";
+import contentfulImageLoader from "../../components/contentfulImageLoader";
 
 export default function Talent({ talent, talentInfo }) {
   return (
@@ -36,6 +37,7 @@ export default function Talent({ talent, talentInfo }) {
                     <Image
                       src={imageUrl}
                       alt={imageAlt}
+                      loader={contentfulImageLoader}
                       layout="fill"
                       objectFit="cover"
                       sizes="(max-width: 780px) 90vw, 42vw"
