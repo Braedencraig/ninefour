@@ -63,6 +63,9 @@ const Menu = ({ open, setOpen }) => {
       <Link href="/our-brands">
         <a onClick={() => setOpen(false)}>Our Brands</a>
       </Link>
+      <Link href="/press">
+        <a onClick={() => setOpen(false)}>Press</a>
+      </Link>
       <Link href="/contact">
         <a onClick={() => setOpen(false)}>Contact</a>
       </Link>

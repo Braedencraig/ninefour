@@ -1,11 +1,13 @@
-/* eslint-disable @next/next/no-img-element */
-import React from "react";
+import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import TalentBar from "../../components/TalentBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faSpotify } from "@fortawesome/free-brands-svg-icons";
+import {
+  faInstagram,
+  faSpotify,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
 import { createClient } from "contentful";
 
@@ -16,6 +18,7 @@ const client = createClient({
 
 export default function TalentDetails({ talent, talentImages }) {
   const {
+    slug,
     title,
     image: {
       fields: {
@@ -30,158 +33,83 @@ export default function TalentDetails({ talent, talentImages }) {
     bio,
   } = talent.fields;
 
+  const imageUrl = url.startsWith("//") ? `https:${url}` : url;
+  const biography = bio?.content?.[0]?.content?.[0]?.value;
+  const isPodcast = title === "Brain Leak" || title === "Yokai";
+  const spotifyUrl =
+    title === "Yokai"
+      ? "https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w"
+      : instagramurl;
+
   return (
     <>
-      <div className="talent-container-single">
-        <div className="mobile-talent">
-          <div className="mobile-image">
-            <img src={`https://${url}`} alt={description} />
-          </div>
-          <h2>{title}</h2>
-          <div
-            className={
-              youtubefollowers !== undefined || instagramfollowers !== undefined
-                ? "socials"
-                : "socials"
-            }
-          >
-            {title === "Brain Leak" && (
-              <a href={instagramurl} className="socials-spacing">
-                <div className="social">
+      <Head>
+        <title>{title} | Nine Four Entertainment</title>
+        <meta
+          name="description"
+          content={biography || `Learn more about ${title}.`}
+        />
+      </Head>
+
+      <main className="talent-profile">
+        <section className="talent-profile__hero">
+          <div className="talent-profile__content">
+            <Link href="/talent">
+              <a className="talent-profile__back">
+                <span aria-hidden="true">←</span> All talent
+              </a>
+            </Link>
+
+            <h1>{title}</h1>
+
+            <div className="talent-profile__socials">
+              {isPodcast && spotifyUrl && (
+                <a href={spotifyUrl} target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faSpotify} />
-                </div>
-              </a>
-            )}
-            {title === "Yokai" && (
-              <a
-                href={
-                  "https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1"
-                }
-                className="socials-spacing"
-                style={{ paddingLeft: "5vw" }}
-              >
-                <div className="social">
-                  <FontAwesomeIcon icon={faSpotify} />
-                </div>
-              </a>
-            )}
-            {title === "Blowback" && (
-              <a
-                href={"https://blowback.show/"}
-                className="socials-spacing listen"
-              >
-                Listen here
-              </a>
-            )}
-            {instagramfollowers !== undefined &&
-              title !== "Brain Leak" &&
-              title !== "Yokai" && (
-                <a href={instagramurl} className="socials-spacing">
-                  <div className="social">
-                    <FontAwesomeIcon icon={faInstagram} />
-                  </div>
-                  <p>{instagramfollowers}</p>
+                  <span>Listen</span>
                 </a>
               )}
-            {youtubefollowers !== undefined &&
-              title !== "Brain Leak" &&
-              title !== "Yokai" && (
-                <a href={youtubeurl}>
-                  <div className="social">
-                    <FontAwesomeIcon icon={faYoutube} />
-                  </div>
-                  <p>{youtubefollowers}</p>
+              {title === "Blowback" && (
+                <a
+                  href="https://blowback.show/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>Listen here</span>
                 </a>
               )}
-          </div>
-          <p className="bio">{bio.content[0].content[0].value}</p>
-
-          <Link href="/talent">
-            <a className="back-to-gallery">
-              <div className="boxes">
-                <div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                </div>
-                <div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                </div>
-              </div>
-              <a>BACK TO TALENT GALLERY</a>
-            </a>
-          </Link>
-        </div>
-
-        <div className="flex-container desktop-talent">
-          <h2>{title}</h2>
-          {/* <div className="mobile-image">
-            <img src={`https://${url}`} alt={description} />
-          </div> https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1 */}
-          <div className="socials">
-            {title === "Brain Leak" && (
-              <a href={instagramurl} className="socials-spacing">
-                <div className="social">
-                  <FontAwesomeIcon icon={faSpotify} />
-                </div>
-              </a>
-            )}
-            {title === "Yokai" && (
-              <a
-                href={
-                  "https://open.spotify.com/artist/5acEBp4nbqoEjROkF8nLj4?si=9QaLkKADRsK8u4fCJYja3w&nd=1"
-                }
-                className="socials-spacing"
-              >
-                <div className="social">
-                  <FontAwesomeIcon icon={faSpotify} />
-                </div>
-              </a>
-            )}
-            {title === "Blowback" && (
-              <a
-                href={"https://blowback.show/"}
-                className="socials-spacing listen"
-              >
-                Listen here
-              </a>
-            )}
-            {instagramfollowers !== undefined && title !== "Brain Leak" && (
-              <a href={instagramurl} className="socials-spacing">
-                <div className="social">
+              {!isPodcast && instagramfollowers && instagramurl && (
+                <a href={instagramurl} target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faInstagram} />
-                </div>
-                <p>{instagramfollowers}</p>
-              </a>
-            )}
-            {youtubefollowers !== undefined && title !== "Brain Leak" && (
-              <a href={youtubeurl}>
-                <div className="social">
+                  <span>{instagramfollowers}</span>
+                </a>
+              )}
+              {!isPodcast && youtubefollowers && youtubeurl && (
+                <a href={youtubeurl} target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faYoutube} />
-                </div>
-                <p>{youtubefollowers}</p>
-              </a>
-            )}
+                  <span>{youtubefollowers}</span>
+                </a>
+              )}
+            </div>
+
+            {biography && <p className="talent-profile__bio">{biography}</p>}
           </div>
-          <p className="bio">{bio.content[0].content[0].value}</p>
-        </div>
-        <div
-          className="talent-image"
-          style={{
-            backgroundImage: `url("https://${url}")`,
-            backgroundPosition: "center",
-            backgroundSize: "550px",
-            width: "550px",
-            height: "550px",
-            clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          {/* <img src={`https://${url}`} alt={description} /> */}
-          {/* <img className="overlay" src="../assets/overlay.png" alt="overlay for image" /> */}
-        </div>
-      </div>
-      <TalentBar data={talentImages} />
+
+          <div className="talent-profile__image">
+            <Image
+              src={imageUrl}
+              alt={description || `${title} portrait`}
+              layout="fill"
+              objectFit="cover"
+              sizes="(max-width: 850px) 100vw, 50vw"
+              priority
+              quality={82}
+            />
+          </div>
+        </section>
+
+        <TalentBar data={talentImages} currentSlug={slug} />
+      </main>
     </>
   );
 }

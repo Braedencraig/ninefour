@@ -1,36 +1,88 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 
-export default function TeamMember({ data }) {
-  const teamMembersObj = [
-    {
-      name: "Parker Oks",
-      bio: "Oks, 29, launched Nine Four Entertainment in 2022, working with content creators on talent management and business development. He serves as CEO of the company. He has been in the creator and entertainment industry for over six years. Based in Las Vegas, his previous experience includes working with actors and creators at Brillstein Entertainment Partners and Daylight Holdings.",
-      image: "../assets/oks-new.jpg",
-    },
-    {
-      name: "Taryn Rose",
-      bio: "Taryn is a coordinator at Nine Four, previously having spent five years in the digital space supporting creators. Deeply passionate about content creators, she is excited to work across platforms with strong talent. Taryn assists in the operations and campaign management across the talent at Nine Four.",
-      image: "../assets/taryn.jpg",
-    },
-    {
-      name: "Colleen Rowbottom",
-      bio: "Rowbottom, 27, has worked in various sectors of entertainment with a focus on Music for the past six years. Coming from WME, she now serves as Talent Coordinator at Nine Four, where she assists with a wide range of management duties for some of the most exciting creators in the digital world.",
-      image: "../assets/colleen-new.jpg",
-    },
-  ];
+const teamMembers = [
+  {
+    name: "Parker Oks",
+    bio: "Parker launched Nine Four Entertainment in 2022, working with content creators on talent management and business development. He serves as President of the company. He has been in the creator and entertainment industry for over a decade. Based in Las Vegas, his previous experience includes working with actors and creators at Brillstein Entertainment Partners and Daylight Holdings.",
+    image: "/assets/oks-new.jpg",
+    imagePosition: "50% 0%",
+  },
+  {
+    name: "Colleen Rowbottom",
+    bio: "Colleen has spent the last 10 years working in various sectors of entertainment. Coming from WME, she joined the Nine Four team as a coordinator in 2023. Now, she serves as Head of Talent. Managing her own roster of digital creators, while working with the rest of the team to identify opportunities across the entire Nine Four roster. Colleen is extremely passionate about working with creators, guiding several clients through surges of popularity ensuring they find staying power in their corner of the digital world, with relevance and value to audiences at the core.",
+    image: "/assets/colleen.jpg",
+    imagePosition: "50% 18%",
+  },
+  {
+    name: "Devon Black",
+    bio: "Devon leads brand partnerships at Nine Four Entertainment, building opportunities for creators across branded content, original programming and live experiences. After beginning her career at Warner Bros. Television and Revelations Entertainment, Devon brings a perspective shaped by both traditional and creator-led entertainment.",
+    image: "/assets/Devon.jpg",
+    imagePosition: "50% 18%",
+  },
+  {
+    name: "Taylor",
+    bio: "Taylor, 25, has worked across gaming, esports, brand partnerships, and creator marketing for the past six years. Prior to joining Nine Four Entertainment, Taylor held multiple marketing and partnership roles at Razer, focusing on creator collaborations and strategic brand partnerships. He now serves as a Talent Manager at Nine Four, where he works closely with creators and brands to secure partnerships, manage campaigns, and support the long-term growth of some of the industry's leading digital talent.",
+    image: "/assets/Taylor.jpeg",
+    imagePosition: "50% 35%",
+  },
+  {
+    name: "Greg",
+    bio: "Greg is a consumer products and brand executive specializing in product strategy, licensing, merchandising, and operations across fashion, sports, gaming, toys, and collectibles. He has held leadership roles with Win Brands Group, Primitive Skate, PSD Underwear, Oakley, Speedo, Nike, and MGA Entertainment, building brands through innovative products, strategic partnerships, and cross functional collaboration.",
+    image: "/assets/Greg.jpg",
+    imagePosition: "50% 20%",
+  },
+  {
+    name: "Wayne",
+    bio: "Wayne is the executive assistant to founder Parker Oks, supporting him across talent management and business development at Nine Four. His background is in traditional film entertainment, having previously worked in production at Artists Equity, the studio founded by Ben Affleck and Matt Damon. At Nine Four, he assists with outreach, research, and client coordination across the company's roster of creators.",
+    image: "/assets/Wayne.jpg",
+    imagePosition: "50% 25%",
+  },
+  {
+    name: "Monica",
+    bio: "Bio coming soon.",
+    image: "/assets/Monica.jpg",
+    imagePosition: "50% 22%",
+  },
+  {
+    name: "Taryn Rose",
+    bio: "Taryn is a Junior Manager at Nine Four Entertainment, bringing over six years of experience in the digital creator economy. Having grown alongside the evolving creator landscape, she is passionate about helping talent build sustainable, impactful careers across platforms. Since joining the team nearly two years ago, Taryn has supported talent strategy, campaign management, and day-to-day operations, working closely with creators and brand partners alike. She is excited to continue building alongside the NFE team and contributing to the growth of both the company and its talent roster.",
+    image: "/assets/taryn.jpg",
+    imagePosition: "50% 20%",
+  },
+];
 
+export default function TeamMembers() {
   return (
-    <div className="members">
-      {teamMembersObj.map((member, i) => {
-        return (
-          <div className="member" key={i}>
-            <img src={member.image} alt={member.name} />
-            <p>{member.name}</p>
-            <p className="member-bio">{member.bio}</p>
+    <div className="team-grid">
+      {teamMembers.map((member, index) => (
+        <article className="team-card" key={member.name}>
+          <div className="team-card__portrait">
+            {member.image ? (
+              <img
+                src={member.image}
+                alt={`${member.name}, Nine Four Entertainment team member`}
+                style={{ objectPosition: member.imagePosition }}
+              />
+            ) : (
+              <div
+                className="team-card__placeholder"
+                role="img"
+                aria-label={`${member.name} portrait coming soon`}
+              >
+                <span>NFE</span>
+              </div>
+            )}
           </div>
-        );
-      })}
+          <div className="team-card__content">
+            <span className="team-card__number">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3>{member.name}</h3>
+            {member.bio && <p>{member.bio}</p>}
+          </div>
+        </article>
+      ))}
     </div>
   );
 }

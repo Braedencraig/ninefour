@@ -1,104 +1,62 @@
-/* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import WorkWithUs from "../../components/WorkWithUs";
 import Link from "next/link";
+import Image from "next/image";
 import { createClient } from "contentful";
 
 export default function Talent({ talent, talentInfo }) {
-  const [shuffTalent, setShuff] = useState([]);
-  // useEffect(() => {
-  //   let imgArr = document.querySelectorAll(".img");
-  //   let prevX = 0;
-  //   let prevY = 0;
-  //   let moveXAmount = 0;
-  //   let moveYAmount = 0;
-
-  //   Array.from(imgArr).map((img) => {
-  //     img.addEventListener("mousemove", function (e) {
-  //       mousePos(e);
-  //     });
-  //   });
-
-  // document.addEventListener("mousemove", function (e) {
-  //   mousePos(e);
-  // });
-
-  // function mousePos(e) {
-  //   moveXAmount = e.pageX - prevX;
-  //   moveYAmount = e.pageY - prevY;
-  //   moveImg(moveXAmount, moveYAmount);
-
-  //   prevX = e.pageX;
-  //   prevY = e.pageY;
-  // }
-
-  // function moveImg(xAmount, yAmount) {
-  //   imgArr.forEach((img) => {
-  //     let movementStrength = 5 + Math.random() * 105;
-  //     // console.log(xAmount);
-  //     // img.style.left = xAmount + "px";
-  //     // img.style.top = yAmount + "px";
-
-  //     // img.style.left = img.offsetLeft - xAmount / movementStrength + "px";
-  //     // img.style.top = img.offsetTop - yAmount / movementStrength + "px";
-  //   });
-  // }
-  // });
-
-  const [isSSR, setIsSSR] = useState(true);
-
-  useEffect(() => {
-    setIsSSR(false);
-  }, []);
-
-  useEffect(() => {
-    function shuffle(array) {
-      let currentIndex = array.length,
-        randomIndex;
-
-      // While there remain elements to shuffle.
-      while (currentIndex != 0) {
-        // Pick a remaining element.
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-
-        // And swap it with the current element.
-        [array[currentIndex], array[randomIndex]] = [
-          array[randomIndex],
-          array[currentIndex],
-        ];
-      }
-
-      return array;
-    }
-
-    setShuff(shuffle(talent));
-  }, [shuffTalent, talent]);
-
   return (
-    <div className="talent">
-      <div className="talent-container">
-        {shuffTalent.map((item, i) => {
-          return (
-            <Link key={item.sys.id} href={`/talent/${item.fields.slug}`}>
-              <a
-                className={`img img${i + 1} talent-item testing`}
-                style={{
-                  backgroundImage: `url("https:${item.fields.image.fields.file.url}")`,
-                }}
-              >
-                <div>
-                  <div className="talent-item-text">
-                    {item.fields.title} <span>+</span>
+    <>
+      <Head>
+        <title>Talent | Nine Four Entertainment</title>
+        <meta
+          name="description"
+          content="Meet the creators represented by Nine Four Entertainment."
+        />
+      </Head>
+
+      <main className="talent-directory">
+        <header className="talent-directory__hero">
+          <p>Our roster</p>
+          <h1>Talent</h1>
+        </header>
+
+        <section className="talent-pill-grid" aria-label="Talent roster">
+          {talent.map(({ sys, fields }, index) => {
+            const imageUrl = `https:${fields.image.fields.file.url}`;
+            const imageAlt =
+              fields.image.fields.description || `${fields.title} portrait`;
+
+            return (
+              <Link key={sys.id} href={`/talent/${fields.slug}`}>
+                <a
+                  className={`talent-pill img img${(index % 24) + 1}`}
+                >
+                  <div className="talent-pill__image">
+                    <Image
+                      src={imageUrl}
+                      alt={imageAlt}
+                      layout="fill"
+                      objectFit="cover"
+                      sizes="(max-width: 780px) 90vw, 42vw"
+                      priority={index < 4}
+                      quality={78}
+                    />
                   </div>
-                </div>
-              </a>
-            </Link>
-          );
-        })}
-      </div>
-      {!isSSR && <WorkWithUs copy={talentInfo[0].fields} />}
-    </div>
+                  <div className="talent-pill__shade" aria-hidden="true" />
+                  <div className="talent-pill__title">
+                    {fields.title}
+                    <span aria-hidden="true">+</span>
+                  </div>
+                </a>
+              </Link>
+            );
+          })}
+        </section>
+
+        <WorkWithUs copy={talentInfo[0].fields} />
+      </main>
+    </>
   );
 }
 
