@@ -4,6 +4,8 @@ const nextConfig = {
   images: {
     domains: ["images.ctfassets.net"],
     unoptimized: true,
+    deviceSizes: [360, 640, 750, 828, 1080, 1200, 1600],
+    imageSizes: [64, 96, 120],
   },
   experimental: {
     concurrentFeatures: true,

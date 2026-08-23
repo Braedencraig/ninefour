@@ -1605,6 +1605,7 @@ h4 {
 
 .talent-profile__content {
   display: flex;
+  min-width: 0;
   padding: clamp(70px, 8vw, 130px) clamp(28px, 6vw, 94px);
   flex-direction: column;
   justify-content: center;
@@ -1624,12 +1625,14 @@ h4 {
 
 .talent-profile__content h1 {
   display: block;
-  max-width: 780px;
+  width: 100%;
+  max-width: 680px;
   margin: 0;
   font-family: "Righteous", cursive;
-  font-size: clamp(70px, 9vw, 145px);
+  font-size: clamp(56px, 6.8vw, 108px);
   line-height: 0.82;
   letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
 }
 
@@ -1826,7 +1829,7 @@ h4 {
   }
 
   .talent-profile__content h1 {
-    font-size: clamp(60px, 20vw, 94px);
+    font-size: clamp(48px, 14vw, 72px);
   }
 
   .talent-explore__heading {

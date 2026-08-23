@@ -3,9 +3,9 @@ import WorkWithUs from "../../components/WorkWithUs";
 import Link from "next/link";
 import Image from "next/image";
 import { createClient } from "contentful";
-import contentfulImageLoader from "../../components/contentfulImageLoader";
+import { contentfulPillImageLoader } from "../../components/contentfulImageLoader";
 
-export default function Talent({ talent, talentInfo }) {
+export default function Talent({ talent, workWithUs }) {
   return (
     <>
       <Head>
@@ -23,13 +23,9 @@ export default function Talent({ talent, talentInfo }) {
         </header>
 
         <section className="talent-pill-grid" aria-label="Talent roster">
-          {talent.map(({ sys, fields }, index) => {
-            const imageUrl = `https:${fields.image.fields.file.url}`;
-            const imageAlt =
-              fields.image.fields.description || `${fields.title} portrait`;
-
+          {talent.map(({ id, imageAlt, imageUrl, slug, title }, index) => {
             return (
-              <Link key={sys.id} href={`/talent/${fields.slug}`}>
+              <Link key={id} href={`/talent/${slug}`}>
                 <a
                   className={`talent-pill img img${(index % 24) + 1}`}
                 >
@@ -37,17 +33,17 @@ export default function Talent({ talent, talentInfo }) {
                     <Image
                       src={imageUrl}
                       alt={imageAlt}
-                      loader={contentfulImageLoader}
+                      loader={contentfulPillImageLoader}
                       layout="fill"
                       objectFit="cover"
                       sizes="(max-width: 780px) 90vw, 42vw"
-                      priority={index < 4}
-                      quality={78}
+                      priority={index < 2}
+                      quality={68}
                     />
                   </div>
                   <div className="talent-pill__shade" aria-hidden="true" />
                   <div className="talent-pill__title">
-                    {fields.title}
+                    {title}
                     <span aria-hidden="true">+</span>
                   </div>
                 </a>
@@ -56,7 +52,7 @@ export default function Talent({ talent, talentInfo }) {
           })}
         </section>
 
-        <WorkWithUs copy={talentInfo[0].fields} />
+        <WorkWithUs copy={workWithUs} />
       </main>
     </>
   );
@@ -74,8 +70,18 @@ export async function getStaticProps() {
 
   return {
     props: {
-      talent: talent.items,
-      talentInfo: talentInfo.items,
+      talent: talent.items.map(({ sys, fields }) => ({
+        id: sys.id,
+        slug: fields.slug,
+        title: fields.title,
+        imageUrl: `https:${fields.image.fields.file.url}`,
+        imageAlt:
+          fields.image.fields.description || `${fields.title} portrait`,
+      })),
+      workWithUs: {
+        title: talentInfo.items[0].fields.title,
+        ctaText: talentInfo.items[0].fields.ctaText,
+      },
     },
     revalidate: 10,
   };

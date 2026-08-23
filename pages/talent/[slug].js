@@ -105,7 +105,7 @@ export default function TalentDetails({ talent, talentImages }) {
               objectFit="cover"
               sizes="(max-width: 850px) 100vw, 50vw"
               priority
-              quality={82}
+              quality={75}
             />
           </div>
         </section>
@@ -140,7 +140,17 @@ export async function getStaticProps({ params }) {
   const talentImages = await client.getEntries({ content_type: "talent" });
 
   return {
-    props: { talent: items[0], talentImages: talentImages.items },
+    props: {
+      talent: items[0],
+      talentImages: talentImages.items.map(({ sys, fields }) => ({
+        id: sys.id,
+        slug: fields.slug,
+        title: fields.title,
+        imageUrl: `https:${fields.image.fields.file.url}`,
+        imageAlt:
+          fields.image.fields.description || `${fields.title} portrait`,
+      })),
+    },
     revalidate: 10,
   };
 }

@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import contentfulImageLoader from "./contentfulImageLoader";
+import { contentfulSquareImageLoader } from "./contentfulImageLoader";
 
 export default function TalentBar({ data, currentSlug }) {
-  const remainingTalent = data.filter(
-    ({ fields }) => fields.slug !== currentSlug
-  );
+  const remainingTalent = data.filter(({ slug }) => slug !== currentSlug);
 
   return (
     <section className="talent-explore" aria-labelledby="explore-talent-title">
@@ -14,21 +12,19 @@ export default function TalentBar({ data, currentSlug }) {
         <h2 id="explore-talent-title">More talent</h2>
       </div>
       <div className="talent-explore__rail">
-        {remainingTalent.map(({ sys, fields: { image, title, slug } }) => {
-          const imageUrl = `https:${image.fields.file.url}`;
-
+        {remainingTalent.map(({ id, imageAlt, imageUrl, slug, title }) => {
           return (
-            <Link href={`/talent/${slug}`} key={sys.id}>
+            <Link href={`/talent/${slug}`} key={id}>
               <a className="talent-explore__item">
                 <span className="talent-explore__image">
                   <Image
                     src={imageUrl}
-                    alt={image.fields.description || `${title} portrait`}
-                    loader={contentfulImageLoader}
+                    alt={imageAlt}
+                    loader={contentfulSquareImageLoader}
                     layout="fill"
                     objectFit="cover"
                     sizes="120px"
-                    quality={65}
+                    quality={60}
                   />
                 </span>
                 <span>{title}</span>
