@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createClient } from "contentful";
+import PageHeader from "../components/PageHeader";
 import WorkWithUs from "../components/WorkWithUs";
 
 export default function Contact({ contact }) {
@@ -34,7 +35,10 @@ export default function Contact({ contact }) {
     //     Inception
     //   </MagneticButton>
     // </MagneticButton>
-    <div className="contact">{!isSSR && <WorkWithUs copy={contact.items[0].fields} />}</div>
+    <>
+      <PageHeader eyebrow="Start a conversation" title="Contact" />
+      <div className="contact">{!isSSR && <WorkWithUs copy={contact.items[0].fields} />}</div>
+    </>
   );
 }
 

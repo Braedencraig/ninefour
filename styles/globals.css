@@ -1138,6 +1138,50 @@ h4 {
   margin-top: 8vh;
 }
 
+/* Shared section headers */
+.section-header {
+  display: flex;
+  width: 100%;
+  max-width: 1600px;
+  min-height: min(42vh, 480px);
+  margin: 0 auto;
+  padding: clamp(50px, 6vw, 90px) clamp(24px, 6vw, 96px)
+    clamp(42px, 5vw, 70px);
+  flex-direction: column;
+  justify-content: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.section-header > p {
+  margin: 0 0 28px;
+  font-family: proximabold, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.section-header h1 {
+  display: block;
+  margin: 0;
+  color: white;
+  font-family: "Righteous", cursive;
+  font-size: clamp(82px, 16vw, 235px);
+  line-height: 0.76;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 760px) {
+  .section-header {
+    min-height: 34vh;
+  }
+
+  .section-header h1 {
+    font-size: clamp(68px, 22vw, 120px);
+  }
+}
+
 /* Press */
 .press-page {
   width: 100%;

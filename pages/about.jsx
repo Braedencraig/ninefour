@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useRef } from "react";
 import { createClient } from "contentful";
+import PageHeader from "../components/PageHeader";
 import TeamMembers from "../components/TeamMembers";
 import { useInViewport } from "react-in-viewport";
 
@@ -26,9 +27,10 @@ export default function About({ aboutInfo, teamMembers }) {
 
   return (
     <div className="about-container">
-      <div className="about-banner">
-        <h2 className="about-hero">{title.content[0].content[0].value}</h2>
-      </div>
+      <PageHeader
+        eyebrow="Who we are"
+        title={title.content[0].content[0].value}
+      />
       <div className="text">
         Nine Four is founded on the idea that creators are the new founders. We
         exist and are driven by a roster of some of the most talented and

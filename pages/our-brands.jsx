@@ -12,6 +12,7 @@ import "animate.css/animate.min.css";
 
 import { Tween } from "react-gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import PageHeader from "../components/PageHeader";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Brands({ copy, brand }) {
@@ -62,22 +63,21 @@ export default function Brands({ copy, brand }) {
     );
   };
   return (
-    <div className="brands">
-      <h3>{copy.items[0].fields.description}</h3>
-      <div className="brands-info">
-        <div className="brands-list">
-          {brand.items.map((item, i) => {
-            return (
-              <BrandItem
-                idx={i}
-                key={`${item.title}-${i}`}
-                data={item.fields}
-              />
-            );
-          })}
+    <>
+      <PageHeader eyebrow="Creator-led companies" title="Our Brands" />
+      <div className="brands">
+        <h3>{copy.items[0].fields.description}</h3>
+        <div className="brands-info">
+          <div className="brands-list">
+            {brand.items.map((item, i) => {
+              return (
+                <BrandItem idx={i} key={`${item.title}-${i}`} data={item.fields} />
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
