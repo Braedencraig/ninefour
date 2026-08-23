@@ -212,6 +212,7 @@ h3 {
   vertical-align: middle;
   font-size: 19px;
   color: white;
+  white-space: nowrap;
   transition: all 0.3s ease-in-out;
 }
 
