@@ -7,6 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
   faSpotify,
+  faTiktok,
+  faTwitch,
+  faTwitter,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -31,6 +34,12 @@ export default function TalentDetails({ talent, talentImages }) {
     youtubefollowers,
     youtubeurl,
     instagramurl,
+    twitchurl,
+    twitchfollowers,
+    twitterurl,
+    twitterfollowers,
+    tiktokurl,
+    tiktokfollowers,
     bio,
   } = talent.fields;
 
@@ -87,6 +96,24 @@ export default function TalentDetails({ talent, talentImages }) {
                 <a href={youtubeurl} target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faYoutube} />
                   <span>{youtubefollowers}</span>
+                </a>
+              )}
+              {twitchfollowers && twitchurl && (
+                <a href={twitchurl} target="_blank" rel="noreferrer">
+                  <FontAwesomeIcon icon={faTwitch} />
+                  <span>{twitchfollowers}</span>
+                </a>
+              )}
+              {tiktokfollowers && tiktokurl && (
+                <a href={tiktokurl} target="_blank" rel="noreferrer">
+                  <FontAwesomeIcon icon={faTiktok} />
+                  <span>{tiktokfollowers}</span>
+                </a>
+              )}
+              {twitterfollowers && twitterurl && (
+                <a href={twitterurl} target="_blank" rel="noreferrer">
+                  <FontAwesomeIcon icon={faTwitter} />
+                  <span>{twitterfollowers}</span>
                 </a>
               )}
             </div>
