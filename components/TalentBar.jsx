@@ -24,7 +24,7 @@ export default function TalentBar({ data, currentSlug }) {
                     layout="fill"
                     objectFit="cover"
                     sizes="120px"
-                    quality={60}
+                    quality={50}
                   />
                 </span>
                 <span>{title}</span>

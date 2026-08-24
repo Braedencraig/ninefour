@@ -40,7 +40,7 @@ const teamMembers = [
   },
   {
     name: "Monica",
-    bio: "Bio coming soon.",
+    bio: "Monica is a Short-Form Talent Manager at Nine Four Entertainment, bringing five years of industry experience and a genuine love for storytelling to every client relationship. Originally from Upstate New York, Monica’s west coast journey started in the most unexpected way: creating “The Vampire Diaries” reaction content on TikTok (and briefly on YouTube!). What began as a passion project opened the door to Los Angeles in 2021, where she initially worked as a content creator before realizing her true calling was behind the scenes — helping creators turn their dreams into sustainable careers. Monica is always on the lookout for creators with an inspiring story to tell or a drive to make a positive impact in their community.",
     image: "/assets/Monica.jpg",
     imagePosition: "50% 22%",
   },

@@ -105,7 +105,7 @@ export default function TalentDetails({ talent, talentImages }) {
               objectFit="cover"
               sizes="(max-width: 850px) 100vw, 50vw"
               priority
-              quality={75}
+              quality={70}
             />
           </div>
         </section>

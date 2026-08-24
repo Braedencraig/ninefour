@@ -3,7 +3,32 @@ import WorkWithUs from "../../components/WorkWithUs";
 import Link from "next/link";
 import Image from "next/image";
 import { createClient } from "contentful";
-import { contentfulPillImageLoader } from "../../components/contentfulImageLoader";
+import contentfulImageLoader, {
+  contentfulPillImageLoader,
+} from "../../components/contentfulImageLoader";
+
+const profileImageWidths = [360, 640, 750, 828, 1080, 1200, 1600];
+const prefetchedProfileImages = new Set();
+
+function prefetchProfileImage(src) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  const layoutWidth =
+    window.innerWidth <= 900 ? window.innerWidth : window.innerWidth * 0.5;
+  const desiredWidth = layoutWidth * window.devicePixelRatio;
+  const width =
+    profileImageWidths.find((size) => size >= desiredWidth) ||
+    profileImageWidths[profileImageWidths.length - 1];
+  const imageUrl = contentfulImageLoader({ src, width, quality: 70 });
+
+  if (!prefetchedProfileImages.has(imageUrl)) {
+    prefetchedProfileImages.add(imageUrl);
+    const image = new window.Image();
+    image.src = imageUrl;
+  }
+}
 
 export default function Talent({ talent, workWithUs }) {
   return (
@@ -28,6 +53,9 @@ export default function Talent({ talent, workWithUs }) {
               <Link key={id} href={`/talent/${slug}`}>
                 <a
                   className={`talent-pill img img${(index % 24) + 1}`}
+                  onFocus={() => prefetchProfileImage(imageUrl)}
+                  onMouseEnter={() => prefetchProfileImage(imageUrl)}
+                  onTouchStart={() => prefetchProfileImage(imageUrl)}
                 >
                   <div className="talent-pill__image">
                     <Image
@@ -38,7 +66,7 @@ export default function Talent({ talent, workWithUs }) {
                       objectFit="cover"
                       sizes="(max-width: 780px) 90vw, 42vw"
                       priority={index < 2}
-                      quality={68}
+                      quality={60}
                     />
                   </div>
                   <div className="talent-pill__shade" aria-hidden="true" />
