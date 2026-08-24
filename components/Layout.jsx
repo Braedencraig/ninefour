@@ -51,23 +51,23 @@ const Menu = ({ open, setOpen }) => {
   const router = useRouter();
   return (
     <StyledMenu open={open} isTalent={router.pathname.includes("talent")}>
-      <Link href="/">
-        <a onClick={() => setOpen(false)}>Home</a>
+      <Link href="/" onClick={() => setOpen(false)}>
+        Home
       </Link>
-      <Link href="/about">
-        <a onClick={() => setOpen(false)}>About</a>
+      <Link href="/about" onClick={() => setOpen(false)}>
+        About
       </Link>
-      <Link href="/talent">
-        <a onClick={() => setOpen(false)}>Talent</a>
+      <Link href="/talent" onClick={() => setOpen(false)}>
+        Talent
       </Link>
-      <Link href="/our-brands">
-        <a onClick={() => setOpen(false)}>Our Brands</a>
+      <Link href="/our-brands" onClick={() => setOpen(false)}>
+        Our Brands
       </Link>
-      <Link href="/press">
-        <a onClick={() => setOpen(false)}>Press</a>
+      <Link href="/press" onClick={() => setOpen(false)}>
+        Press
       </Link>
-      <Link href="/contact">
-        <a onClick={() => setOpen(false)}>Contact</a>
+      <Link href="/contact" onClick={() => setOpen(false)}>
+        Contact
       </Link>
     </StyledMenu>
   );

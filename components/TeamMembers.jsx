@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
+import Image from "next/image";
 
 const teamMembers = [
   {
@@ -59,10 +59,15 @@ export default function TeamMembers() {
         <article className="team-card" key={member.name}>
           <div className="team-card__portrait">
             {member.image ? (
-              <img
+              <Image
                 src={member.image}
                 alt={`${member.name}, Nine Four Entertainment team member`}
-                style={{ objectPosition: member.imagePosition }}
+                fill
+                sizes="(max-width: 650px) 100vw, (max-width: 1199px) 48vw, 360px"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: member.imagePosition,
+                }}
               />
             ) : (
               <div

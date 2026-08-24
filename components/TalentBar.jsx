@@ -14,21 +14,23 @@ export default function TalentBar({ data, currentSlug }) {
       <div className="talent-explore__rail">
         {remainingTalent.map(({ id, imageAlt, imageUrl, slug, title }) => {
           return (
-            <Link href={`/talent/${slug}`} key={id}>
-              <a className="talent-explore__item">
-                <span className="talent-explore__image">
-                  <Image
-                    src={imageUrl}
-                    alt={imageAlt}
-                    loader={contentfulSquareImageLoader}
-                    layout="fill"
-                    objectFit="cover"
-                    sizes="120px"
-                    quality={50}
-                  />
-                </span>
-                <span>{title}</span>
-              </a>
+            <Link
+              href={`/talent/${slug}`}
+              key={id}
+              className="talent-explore__item"
+            >
+              <span className="talent-explore__image">
+                <Image
+                  src={imageUrl}
+                  alt={imageAlt}
+                  loader={contentfulSquareImageLoader}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  sizes="120px"
+                  quality={50}
+                />
+              </span>
+              <span>{title}</span>
             </Link>
           );
         })}

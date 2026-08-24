@@ -55,7 +55,11 @@ export default function Brands({ copy, brand }) {
         </div>
         <div className="brand-flex-right">
           <div key={title}>
-            <img src={`https://${image.fields.file.url}`} alt={title} />
+            <img
+              src={`https://${image.fields.file.url}?w=640&fm=webp&q=80`}
+              alt={title}
+              loading="lazy"
+            />
             <p>{info}</p>
           </div>
         </div>

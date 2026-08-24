@@ -50,31 +50,31 @@ export default function Talent({ talent, workWithUs }) {
         <section className="talent-pill-grid" aria-label="Talent roster">
           {talent.map(({ id, imageAlt, imageUrl, slug, title }, index) => {
             return (
-              <Link key={id} href={`/talent/${slug}`}>
-                <a
-                  className={`talent-pill img img${(index % 24) + 1}`}
-                  onFocus={() => prefetchProfileImage(imageUrl)}
-                  onMouseEnter={() => prefetchProfileImage(imageUrl)}
-                  onTouchStart={() => prefetchProfileImage(imageUrl)}
-                >
-                  <div className="talent-pill__image">
-                    <Image
-                      src={imageUrl}
-                      alt={imageAlt}
-                      loader={contentfulPillImageLoader}
-                      layout="fill"
-                      objectFit="cover"
-                      sizes="(max-width: 780px) 90vw, 42vw"
-                      priority={index < 2}
-                      quality={60}
-                    />
-                  </div>
-                  <div className="talent-pill__shade" aria-hidden="true" />
-                  <div className="talent-pill__title">
-                    {title}
-                    <span aria-hidden="true">+</span>
-                  </div>
-                </a>
+              <Link
+                key={id}
+                href={`/talent/${slug}`}
+                className={`talent-pill img img${(index % 24) + 1}`}
+                onFocus={() => prefetchProfileImage(imageUrl)}
+                onMouseEnter={() => prefetchProfileImage(imageUrl)}
+                onTouchStart={() => prefetchProfileImage(imageUrl)}
+              >
+                <div className="talent-pill__image">
+                  <Image
+                    src={imageUrl}
+                    alt={imageAlt}
+                    loader={contentfulPillImageLoader}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width: 780px) 90vw, 42vw"
+                    priority={index < 2}
+                    quality={60}
+                  />
+                </div>
+                <div className="talent-pill__shade" aria-hidden="true" />
+                <div className="talent-pill__title">
+                  {title}
+                  <span aria-hidden="true">+</span>
+                </div>
               </Link>
             );
           })}

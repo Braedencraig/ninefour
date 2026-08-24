@@ -55,10 +55,8 @@ export default function TalentDetails({ talent, talentImages }) {
       <main className="talent-profile">
         <section className="talent-profile__hero">
           <div className="talent-profile__content">
-            <Link href="/talent">
-              <a className="talent-profile__back">
-                <span aria-hidden="true">←</span> All talent
-              </a>
+            <Link href="/talent" className="talent-profile__back">
+              <span aria-hidden="true">←</span> All talent
             </Link>
 
             <h1>{title}</h1>
@@ -101,8 +99,8 @@ export default function TalentDetails({ talent, talentImages }) {
               src={imageUrl}
               alt={description || `${title} portrait`}
               loader={contentfulImageLoader}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               sizes="(max-width: 850px) 100vw, 50vw"
               priority
               quality={70}
