@@ -2011,6 +2011,11 @@ h4 {
   display: none;
 }
 
+.menu-open .page-content,
+.menu-open > header {
+  visibility: hidden;
+}
+
 .fourofour {
   display: flex;
   justify-content: center;
@@ -2117,6 +2122,7 @@ h4 {
   }
   .mobile-nav {
     display: block;
+    min-height: 4.5rem;
   }
   .about-banner h2 {
     font-size: 80px;

@@ -9,37 +9,34 @@ const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   background: #000;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   height: 100vh;
-  text-align: left;
-  padding: 2rem;
-  position: absolute;
-  top: 0;
-  left: 0;
+  height: 100dvh;
+  text-align: center;
+  padding: max(4.75rem, env(safe-area-inset-top)) 1.5rem
+    max(2rem, env(safe-area-inset-bottom));
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
   transition: transform 0.4s ease-in-out;
   width: 100%;
-  z-index: 10;
-
-  @media (max-width: 576px) {
-    width: 100%;
-  }
+  z-index: 100;
+  pointer-events: ${({ open }) => (open ? "auto" : "none")};
 
   a {
-    font-size: 2rem;
+    font-size: clamp(1.35rem, 5.2vw, 2rem);
     text-transform: uppercase;
-    padding: 2rem 0;
+    padding: clamp(0.55rem, 1.8vh, 1.15rem) 0;
     font-weight: bold;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.18em;
+    line-height: 1.1;
     cursor: pointer;
     color: #fff;
     text-decoration: none;
     transition: color 0.3s linear;
-
-    @media (max-width: 576px) {
-      font-size: 1.5rem;
-      text-align: center;
-    }
 
     &:hover {
       color: orange;
@@ -74,11 +71,9 @@ const Menu = ({ open, setOpen }) => {
 };
 
 const StyledBurger = styled.button`
-  position: absolute;
-  position: relative;
-  margin-top: 5vh;
-  top: 5%;
-  left: 2rem;
+  position: fixed;
+  top: max(1.15rem, env(safe-area-inset-top));
+  left: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -88,12 +83,7 @@ const StyledBurger = styled.button`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 20;
-
-  @media (max-width: 900px) {
-    margin-top: 1rem;
-    left: 1rem;
-  }
+  z-index: 110;
 
   &:focus {
     outline: none;
@@ -124,11 +114,9 @@ const StyledBurger = styled.button`
 `;
 
 const StyledBurgerTalent = styled.button`
-  position: absolute;
-  position: relative;
-  margin-top: 5vh;
-  top: 5%;
-  left: 2rem;
+  position: fixed;
+  top: max(1.15rem, env(safe-area-inset-top));
+  left: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -138,12 +126,7 @@ const StyledBurgerTalent = styled.button`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 20;
-
-  @media (max-width: 900px) {
-    margin-top: 1rem;
-    left: 1rem;
-  }
+  z-index: 110;
 
   &:focus {
     outline: none;
@@ -202,16 +185,37 @@ const Burger = ({ open, setOpen }) => {
 export default function Layout({ children }) {
   const [open, setOpen] = useState(false);
   const node = useRef();
+  const router = useRouter();
   useOnClickOutside(node, () => setOpen(false));
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
+    const closeMenu = () => setOpen(false);
+
+    router.events.on("routeChangeStart", closeMenu);
+
+    return () => {
+      router.events.off("routeChangeStart", closeMenu);
+    };
+  }, [router]);
+
   return (
-    <div className="layout fadeIn">
+    <div className={`layout fadeIn${open ? " menu-open" : ""}`}>
       <NavBar />
       <div ref={node} className="mobile-nav">
         <Burger open={open} setOpen={setOpen} />
         <Menu open={open} setOpen={setOpen} />
       </div>
-      <div className="page-content">{children}</div>
+      <div className="page-content" aria-hidden={open}>
+        {children}
+      </div>
     </div>
   );
 }
