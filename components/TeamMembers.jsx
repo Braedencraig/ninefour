@@ -29,7 +29,7 @@ const teamMembers = [
   {
     name: "Greg Cassius",
     bio: "Greg is a consumer products and brand executive specializing in product strategy, licensing, merchandising, and operations across fashion, sports, gaming, toys, and collectibles. He has held leadership roles with Win Brands Group, Primitive Skate, PSD Underwear, Oakley, Speedo, Nike, and MGA Entertainment, building brands through innovative products, strategic partnerships, and cross functional collaboration.",
-    image: "/assets/Greg%20Cassius.png",
+    image: "/assets/greg-cassius.jpg",
     imagePosition: "50% 20%",
   },
   {
