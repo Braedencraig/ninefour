@@ -21,22 +21,22 @@ const teamMembers = [
     imagePosition: "50% 18%",
   },
   {
-    name: "Taylor Hajek",
-    bio: "Taylor, 25, has worked across gaming, esports, brand partnerships, and creator marketing for the past six years. Prior to joining Nine Four Entertainment, Taylor held multiple marketing and partnership roles at Razer, focusing on creator collaborations and strategic brand partnerships. He now serves as a Talent Manager at Nine Four, where he works closely with creators and brands to secure partnerships, manage campaigns, and support the long-term growth of some of the industry's leading digital talent.",
-    image: "/assets/Taylor.jpeg",
-    imagePosition: "50% 35%",
-  },
-  {
     name: "Greg Cassius",
     bio: "Greg is a consumer products and brand executive specializing in product strategy, licensing, merchandising, and operations across fashion, sports, gaming, toys, and collectibles. He has held leadership roles with Win Brands Group, Primitive Skate, PSD Underwear, Oakley, Speedo, Nike, and MGA Entertainment, building brands through innovative products, strategic partnerships, and cross functional collaboration.",
     image: "/assets/greg-cassius.jpg",
     imagePosition: "50% 20%",
   },
   {
-    name: "Wayne Chen Delgado",
-    bio: "Wayne is the executive assistant to founder Parker Oks, supporting him across talent management and business development at Nine Four. His background is in traditional film entertainment, having previously worked in production at Artists Equity, the studio founded by Ben Affleck and Matt Damon. At Nine Four, he assists with outreach, research, and client coordination across the company's roster of creators.",
-    image: "/assets/Wayne.jpg",
-    imagePosition: "50% 25%",
+    name: "Taryn Rose",
+    bio: "Taryn is a Junior Manager at Nine Four Entertainment, bringing over six years of experience in the digital creator economy. Having grown alongside the evolving creator landscape, she is passionate about helping talent build sustainable, impactful careers across platforms. Since joining the team nearly two years ago, Taryn has supported talent strategy, campaign management, and day-to-day operations, working closely with creators and brand partners alike. She is excited to continue building alongside the NFE team and contributing to the growth of both the company and its talent roster.",
+    image: "/assets/taryn.jpg",
+    imagePosition: "50% 20%",
+  },
+  {
+    name: "Taylor Hajek",
+    bio: "Taylor, 25, has worked across gaming, esports, brand partnerships, and creator marketing for the past six years. Prior to joining Nine Four Entertainment, Taylor held multiple marketing and partnership roles at Razer, focusing on creator collaborations and strategic brand partnerships. He now serves as a Talent Manager at Nine Four, where he works closely with creators and brands to secure partnerships, manage campaigns, and support the long-term growth of some of the industry's leading digital talent.",
+    image: "/assets/Taylor.jpeg",
+    imagePosition: "50% 35%",
   },
   {
     name: "Monica Ring",
@@ -45,17 +45,17 @@ const teamMembers = [
     imagePosition: "50% 22%",
   },
   {
-    name: "Taryn Rose",
-    bio: "Taryn is a Junior Manager at Nine Four Entertainment, bringing over six years of experience in the digital creator economy. Having grown alongside the evolving creator landscape, she is passionate about helping talent build sustainable, impactful careers across platforms. Since joining the team nearly two years ago, Taryn has supported talent strategy, campaign management, and day-to-day operations, working closely with creators and brand partners alike. She is excited to continue building alongside the NFE team and contributing to the growth of both the company and its talent roster.",
-    image: "/assets/taryn.jpg",
-    imagePosition: "50% 20%",
+    name: "Wayne Chen Delgado",
+    bio: "Wayne is the executive assistant to founder Parker Oks, supporting him across talent management and business development at Nine Four. His background is in traditional film entertainment, having previously worked in production at Artists Equity, the studio founded by Ben Affleck and Matt Damon. At Nine Four, he assists with outreach, research, and client coordination across the company's roster of creators.",
+    image: "/assets/Wayne.jpg",
+    imagePosition: "50% 25%",
   },
 ];
 
 export default function TeamMembers() {
   return (
     <div className="team-grid">
-      {teamMembers.map((member, index) => (
+      {teamMembers.map((member) => (
         <article className="team-card" key={member.name}>
           <div className="team-card__portrait">
             {member.image ? (
@@ -80,9 +80,6 @@ export default function TeamMembers() {
             )}
           </div>
           <div className="team-card__content">
-            <span className="team-card__number">
-              {String(index + 1).padStart(2, "0")}
-            </span>
             <h3>{member.name}</h3>
             {member.bio && <p>{member.bio}</p>}
           </div>

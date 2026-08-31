@@ -978,18 +978,7 @@ h4 {
 }
 
 .team-card__content {
-  display: grid;
   padding: clamp(28px, 3vw, 48px) 0 clamp(12px, 2vw, 28px);
-  grid-template-columns: 44px minmax(0, 1fr);
-  column-gap: clamp(16px, 2vw, 32px);
-}
-
-.team-card__number {
-  padding-top: 8px;
-  font-family: proximabold, sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  opacity: 0.55;
 }
 
 .team-card__content h3 {
@@ -1009,7 +998,6 @@ h4 {
 .team-card__content p {
   max-width: 610px;
   margin: 26px 0 0;
-  grid-column: 2;
   font-size: clamp(16px, 1.25vw, 19px);
   line-height: 1.55;
   opacity: 0.8;
@@ -1023,11 +1011,6 @@ h4 {
 
   .team-card {
     padding: 28px;
-  }
-
-  .team-card__content {
-    grid-template-columns: 32px minmax(0, 1fr);
-    column-gap: 16px;
   }
 
   .team-card__content h3 {
