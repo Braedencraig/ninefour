@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import WorkWithUs from "../../components/WorkWithUs";
 import Link from "next/link";
@@ -9,6 +10,17 @@ import contentfulImageLoader, {
 
 const profileImageWidths = [360, 640, 750, 828, 1080, 1200, 1600];
 const prefetchedProfileImages = new Set();
+
+function shuffleTalent(talent) {
+  const roster = [...talent];
+
+  for (let index = roster.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [roster[index], roster[swapIndex]] = [roster[swapIndex], roster[index]];
+  }
+
+  return roster;
+}
 
 function prefetchProfileImage(src) {
   if (typeof window === "undefined") {
@@ -31,6 +43,14 @@ function prefetchProfileImage(src) {
 }
 
 export default function Talent({ talent, workWithUs }) {
+  const [roster, setRoster] = useState(talent);
+  const [isShuffled, setIsShuffled] = useState(false);
+
+  useEffect(() => {
+    setRoster(shuffleTalent(talent));
+    setIsShuffled(true);
+  }, [talent]);
+
   return (
     <>
       <Head>
@@ -47,8 +67,14 @@ export default function Talent({ talent, workWithUs }) {
           <h1>Talent</h1>
         </header>
 
-        <section className="talent-pill-grid" aria-label="Talent roster">
-          {talent.map(({ id, imageAlt, imageUrl, slug, title }, index) => {
+        <section
+          className={`talent-pill-grid${
+            isShuffled ? "" : " talent-pill-grid--pending"
+          }`}
+          aria-label="Talent roster"
+          aria-busy={!isShuffled}
+        >
+          {roster.map(({ id, imageAlt, imageUrl, slug, title }, index) => {
             return (
               <Link
                 key={id}

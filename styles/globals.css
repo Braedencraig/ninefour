@@ -22,10 +22,13 @@ body {
   padding: 0;
   margin: 0;
   font-family: proxima, sans-serif;
-  height: 100%;
+  min-height: 100%;
   /* background: black; */
   color: white;
-  overflow-x: hidden;
+}
+
+html {
+  overflow-x: clip;
 }
 
 .mobile-talent {
@@ -226,10 +229,6 @@ h3 {
 
 html {
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   /* background: black; */
 }
 
@@ -1382,6 +1381,10 @@ h4 {
   border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+.talent-pill-grid--pending {
+  visibility: hidden;
+}
+
 .talent-pill {
   position: relative;
   display: block;
@@ -1613,10 +1616,10 @@ h4 {
   max-width: 680px;
   margin: 0;
   font-family: "Righteous", cursive;
-  font-size: clamp(56px, 6.8vw, 108px);
-  line-height: 0.82;
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 0.95;
   letter-spacing: -0.045em;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   text-transform: uppercase;
 }
 
@@ -1813,7 +1816,7 @@ h4 {
   }
 
   .talent-profile__content h1 {
-    font-size: clamp(48px, 14vw, 72px);
+    font-size: clamp(40px, 11vw, 64px);
   }
 
   .talent-explore__heading {
